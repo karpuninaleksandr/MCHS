@@ -49,12 +49,12 @@
     padding: 10px 20px;
 }
 
-.phoneNumbersFSB { 
+.phone_numbers { 
     list-style-type: square;
     display: flex;
 }
 
-.phoneNumbersFSB li {
+.phone_numbers li {
     margin-left: 40px;
 }
 
@@ -75,22 +75,13 @@
     height: 80%
 }
 
-input[type=text] {
-    background-color: #fafafa;
-    border:0;
-    padding: 2px;
-    margin: 10px 5px;
-
-    box-shadow: 0 0 0 1px #222222;
-}
-
 textarea {
 	resize: none;
     overflow: auto;
 }
 
 .textHelp {
-    height: 25%;
+    height: 90px;
     width: 90%;
     border:0;
     padding: 2%;
@@ -114,4 +105,13 @@ textarea {
 
 .button_entrance:hover {
     background-color: rgba(99, 12, 12, 0.411);
+}
+
+.input_info input[type=text] {
+    background-color: #fafafa;
+    border:0;
+    padding: 2px;
+    margin: 10px 5px;
+    box-shadow: 0 0 0 1px #222222;
+    width: 90%;
 }
