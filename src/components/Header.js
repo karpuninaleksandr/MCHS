@@ -5,5 +5,4 @@ export default function Header() {
             <button className = 'button_entrance'>Вход</button>
         </div>
     )
-
 }

@@ -16,7 +16,7 @@ export default function Accordion() {
                 <div class="input_info">
                    <p>Причина вызова</p>
                     <br></br>
-                    <select className = "selectList">
+                    <select className = "select_list">
                         <option disabled selected>Выберите из списка</option>
                         <option>Пожар</option>
                         <option>Преступление</option> 
@@ -28,7 +28,7 @@ export default function Accordion() {
                 <br></br>
                 <div class="input_info">
                     <p>Нужная информация</p>
-                    <textarea className = "textHelp" placeholder = "Опишите ситуацию"></textarea>
+                    <textarea className = "text_help" placeholder = "Опишите ситуацию"></textarea>
                 </div>
                 
                 <p>Есть ли пострадавшие?</p>
