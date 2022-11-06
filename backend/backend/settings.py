@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'call',
     'corsheaders',
     'rest_framework',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'backend.urls'
+
+INDEX_HTML_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'public', 'index.html')
+
 
 TEMPLATES = [
     {
@@ -104,6 +108,7 @@ DATABASES = {
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
 )
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

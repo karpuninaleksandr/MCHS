@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+# import view sets from the REST framework
+
+def index(request):
+    return render(request, settings.INDEX_HTML_PATH)
+
