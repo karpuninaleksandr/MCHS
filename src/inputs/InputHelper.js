@@ -19,7 +19,21 @@ export default class ClientInput extends React.Component {
     }
 
     send() {
-        if ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")) console.log(JSON.stringify(this.state))
+        if ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")) {
+            fetch("http://localhost:3000/",
+            {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.state)
+            })
+            .then(function(res){ console.log(res) })
+            .catch(function(res){ console.log(res) })
+        } else console.log("Fill the form you moron") 
+        //наверное стоит объяснить челвеку, что форма должна быть заполнена понятнее
+        //но пока пусть будет так
     }
 
     handleInputChange(event) {
