@@ -7,7 +7,6 @@
 .idea/
 
 # environ
-.env
 venv/
 
 
