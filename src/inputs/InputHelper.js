@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 export default class ClientInput extends React.Component {
 
@@ -16,6 +16,10 @@ export default class ClientInput extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleInjures = this.handleInjures.bind(this)
+    }
+
+    send() {
+        if ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")) console.log(JSON.stringify(this.state))
     }
 
     handleInputChange(event) {
@@ -40,7 +44,6 @@ export default class ClientInput extends React.Component {
         const patronymic = event.target.patronymic.value
         const reason = event.target.reason.value
         const comment = event.target.comment.value
-        console.log(surname, name, patronymic, reason, comment)
       }
 
     render() {
@@ -84,7 +87,7 @@ export default class ClientInput extends React.Component {
                 <br></br>
                 <input type="checkbox" value="Нет информации" name="injures" onChange={this.handleInjures}/> Нет информации
                 <br></br>
-                <button onClick={ console.log(this.state)} className = 'call'>Вызов</button>
+                <button onClick={() => {this.send()}} className = 'call'>Вызов</button>
                 </form>
             </div>
         )
