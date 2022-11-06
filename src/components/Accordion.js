@@ -1,9 +1,9 @@
-import Inputs from "../inputs/InputHelper"
+import ClientInput from "../inputs/InputHelper"
 
 export default function Accordion() {
     return (
         <div className = "accordion">
-            <Inputs />
+            <ClientInput />
         </div>
     )
 }
