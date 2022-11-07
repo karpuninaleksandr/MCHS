@@ -80,7 +80,7 @@ export default class ClientInput extends React.Component {
                     <p>Причина вызова</p>
                     <br></br>
                     <select className = "select_list" name="reason" onChange={this.handleInputChange}>
-                        <option>Выберите из списка</option>
+                        <option value={"Другое"}>Выберите из списка</option>
                         <option value={"Пожар"}>Пожар</option>
                         <option value={"Преступление"}>Преступление</option> 
                         <option value={"Наводнение"}>Наводнение</option> 

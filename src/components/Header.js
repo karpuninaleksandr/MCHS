@@ -13,7 +13,7 @@ export default function Header() {
                     <input onChange={(event) => setLogin(event.target.value)} type = "text" name = "login"></input>
                     <p>Пароль:</p>
                     <input onChange={(event) => setRassword(event.target.value)} type = "text" name = "password"></input>
-                    <NavLink className="nav-link" to="/about">
+                    <NavLink className="nav-link" to="/management">
                         <button className = "entry">ОК</button>
                     </NavLink>
                 </div>
