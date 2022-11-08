@@ -20,7 +20,7 @@ export default class ClientInput extends React.Component {
 
     send() {
         if ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")) {
-            fetch("http://localhost:8000/api/frontend",
+            fetch("http://localhost:8000/api/calls",
             {
                 method: "POST",
                 headers: {
