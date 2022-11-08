@@ -1,7 +1,12 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
+from . import serializers
 
-# import view sets from the REST framework
 
-def index(request):
-    return render(request, settings.INDEX_HTML_PATH)
+class CreateCall(APIView):
+    """Method for create call record"""
+
+    def post(self, request):
+        serializer = serializers.CallSerializer(request.data)
+        print(res := serializer.is_valid())
+        g = res  # vayaaaaaa
 
