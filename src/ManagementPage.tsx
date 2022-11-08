@@ -3,7 +3,7 @@ import Accordion from "./components/Accordion";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
 
-function About() {
+function Management() {
     return (
         <div className = 'start'> 
             <Headers />
@@ -14,4 +14,4 @@ function About() {
     )
  }
 
- export default About;
+ export default Management;
