@@ -5,13 +5,16 @@ from rest_framework.views import APIView
 from . import serializers
 
 
-class CreateCall(APIView):
+class CallView(APIView):
     """Method for create call record"""
 
-    @transaction.atomic
+    # @transaction.atomic
     def post(self, request):
         serializer = serializers.CallSerializer(data=request.data)
-        print(res := serializer.is_valid(), serializer.data, end='\n')
+        print(res := serializer.is_valid(), serializer.errors, serializer.data, end='\n')
         g = res  # vayaaaaaa
-        return Response(status=status.HTTP_200_OK)
+        return Response({'good': 'OK!'})
 
+    def get(self, request):
+
+        ...

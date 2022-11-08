@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Person, Calling
+from .models import Person, Call
 
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -10,8 +10,8 @@ class PersonSerializer(serializers.ModelSerializer):
 
 
 class CallSerializer(serializers.ModelSerializer):
-    called = PersonSerializer()
+    person = PersonSerializer()
 
     class Meta:
-        model = Calling
+        model = Call
         fields = '__all__'
