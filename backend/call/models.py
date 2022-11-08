@@ -11,9 +11,9 @@ class Person(models.Model):
         return self.name, self.surname, self.role
 
 
-class Calling(models.Model):
+class Call(models.Model):
     called = models.ForeignKey(Person, on_delete=models.CASCADE)
-    workerIds = models.ManyToManyField(Person)
+    workers = models.ManyToManyField(Person)
     reason = models.CharField()
     comment = models.TextField()
     injures = models.BooleanField()     # наличие жертв
