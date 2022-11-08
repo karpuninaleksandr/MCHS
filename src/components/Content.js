@@ -3,17 +3,16 @@ import { useRef, useState } from "react"
 
 export default function Content() {
     const map = useRef(null);
-    const[placemarkCoords, setPlacemarkCoords] = useState([0, 0])
+    const[placemarkCoords, setPlacemarkCoords] = useState([57.619234, 39.899597])
     const mapState = {
         center: [57.619234, 39.899597],
         zoom: 15
     }
     const handleDrag = (e) => {
-        const placemarkDragCoords = (e.get('target').geometry.getCoordinates())
+        let placemarkDragCoords = (e.get('target').geometry.getCoordinates())
         console.log(placemarkDragCoords)
-        if (map.current) map.current.setCenter(placemarkDragCoords)
+        if (map.current) map.current.setCenter(placemarkCoords)
         setPlacemarkCoords(placemarkDragCoords)
-        console.log(placemarkCoords)
     }
     return (
         <div className = "content">
@@ -22,7 +21,8 @@ export default function Content() {
                 <Map state={mapState} instanceRef={map} className = "map">
                     <Placemark
                         onDragEnd = {handleDrag}
-                        geometry={[57.619234, 39.899597]}
+                        // geometry={[57.619234, 39.899597]}
+                        geometry={placemarkCoords}
                         options={{
                             preset: 'islands#redDotIcon',
                             draggable: true
