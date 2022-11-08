@@ -27,7 +27,15 @@ export default class ClientInput extends React.Component {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(this.state)
+                body: JSON.stringify({
+                    person: {
+                        surname: this.state.surname,
+                        name: this.state.name,
+                        patronymic: this.state.patronymic
+                    },
+                    reason: this.state.reason,
+                    comment: this.state.comment
+                })
             })
             .then(function(res){ console.log(res) })
             .catch(function(res){ console.log(res) })
