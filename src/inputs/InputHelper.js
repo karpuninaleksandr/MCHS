@@ -32,7 +32,7 @@ export default class ClientInput extends React.Component {
             .then(function(res){ console.log(res) })
             .catch(function(res){ console.log(res) })
         } else console.log("Fill the form you moron") 
-        //наверное стоит объяснить челвеку, что форма должна быть заполнена понятнее
+        //наверное стоит объяснить челвеку, что форма должна быть заполнена, понятнее
         //но пока пусть будет так
     }
 
