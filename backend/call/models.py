@@ -26,7 +26,7 @@ class Call(models.Model):
     workers = models.ManyToManyField(Person)
     reason = models.CharField(max_length=100)
     comment = models.TextField(max_length=100)
-    injury = models.CharField(choices=Injury.choices, max_length=7)     # наличие жертв
+    injures = models.CharField(choices=Injury.choices, max_length=7)     # наличие жертв
     latitude = models.FloatField()      # широта
     longitude = models.FloatField()     # долгота
 

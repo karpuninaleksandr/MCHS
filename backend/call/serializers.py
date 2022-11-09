@@ -10,8 +10,14 @@ class PersonSerializer(serializers.ModelSerializer):
 
 
 class CallSerializer(serializers.ModelSerializer):
+    # TODO необходимо проверять есть ли person в базе, если нет то выкидывать исклдчение и создавать его
     person = PersonSerializer()
 
     class Meta:
         model = Call
-        fields = '__all__'
+        fields = ['injures', 'person']
+
+    def validate_person(self, value):
+        res = PersonSerializer(value)
+        ...
+        # Если данные проходят проверку, то мы из этих данных смотрим есть ли такой человек в базе, есил нет выдаем исключение
