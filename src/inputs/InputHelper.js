@@ -34,7 +34,8 @@ export default class ClientInput extends React.Component {
                         patronymic: this.state.patronymic
                     },
                     reason: this.state.reason,
-                    comment: this.state.comment
+                    comment: this.state.comment, 
+                    injures: this.state.injures
                 })
             })
             .then(function(res){ console.log(res) })
