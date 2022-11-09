@@ -60,8 +60,6 @@
 
 .content {
     box-shadow: 0 0 0 1px #222222;
-    overflow-y: scroll;
-    overflow-x: hidden;
     background-color: white;
     grid-column: 2;
     grid-row: 2;
@@ -142,4 +140,9 @@ textarea {
     margin: 10px 5px;
     box-shadow: 0 0 0 1px #222222;
     width: 90%;
+}
+
+.map {
+    height: 90%;
+    width: 100%;
 }
