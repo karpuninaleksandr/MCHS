@@ -1,23 +1,44 @@
+from django.db import models
 from rest_framework import serializers
+from rest_framework.validators import UniqueTogetherValidator
 
 from .models import Person, Call
 
 
-class PersonSerializer(serializers.ModelSerializer):
+class PersonSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=50)
+    surname = serializers.CharField(max_length=50)
+    patronymic = serializers.CharField(max_length=50)
+
+
+class PersonSerializerForUpdateData(PersonSerializer):
+
     class Meta:
-        model = Person
-        fields = '__all__'
+        ...
+        # validators = [
+        #     UniqueTogetherValidator(
+        #         queryset=Person.objects,
+        #         fields=['surname', 'name', 'patronymic']
+        #     )
+        # ]
+
+    def create(self, validated_data):
+       return Person.objects.create(**validated_data)
 
 
 class CallSerializer(serializers.ModelSerializer):
-    # TODO необходимо проверять есть ли person в базе, если нет то выкидывать исклдчение и создавать его
-    person = PersonSerializer()
-
-    class Meta:
-        model = Call
-        fields = ['injures', 'person']
+    person = PersonSerializerForUpdateData()
 
     def validate_person(self, value):
-        res = PersonSerializer(value)
-        ...
-        # Если данные проходят проверку, то мы из этих данных смотрим есть ли такой человек в базе, есил нет выдаем исключение
+        try:
+            return Person.objects.get(**value)
+        except models.ObjectDoesNotExist:
+            return Person.objects.create(**value).save()
+
+    class Meta:
+
+        model = Call
+        exclude = ['injures', 'longitude', 'latitude', 'workers']
+
+    def create(self, validated_data):
+        return Call.objects.create(**validated_data)

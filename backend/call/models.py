@@ -1,7 +1,11 @@
 from django.db import models
 
+from .managers import PersonManager, CallManager
+
 
 class Person(models.Model):
+    objects = PersonManager()
+
     class Role(models.TextChoices):
         GUEST = 'Guest'
         WORKER = 'Worker'
@@ -10,13 +14,14 @@ class Person(models.Model):
     name = models.CharField(max_length=50, db_index=True)
     surname = models.CharField(max_length=50, db_index=True)
     patronymic = models.CharField(max_length=50)
-    role = models.CharField(choices=Role.choices, max_length=6)
 
     def __str__(self):
-        return self.name, self.surname, self.role
+        return self.name, self.surname
 
 
 class Call(models.Model):
+    objects = CallManager()
+
     class Injury(models.TextChoices):
         YES = 'Да'
         NO = 'Нет'

@@ -3,18 +3,15 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework.views import APIView
 from . import serializers
+from .models import Person
 
 
 class CallView(APIView):
     """Method for create call record"""
 
-    # @transaction.atomic
+    @transaction.atomic
     def post(self, request):
-        serializers.CallSerializer(data=request.data).is_valid()
+        ser = serializers.CallSerializer(data=request.data)
+        ser.is_valid(raise_exception=True)
+        ser.save()
         return Response({'good': 'OK!'})
-
-    def get(self, request):
-
-        ...
-
-# TODO описать свои классы исключений и унаследовать их от ValidationError
