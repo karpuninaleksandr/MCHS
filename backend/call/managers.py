@@ -8,5 +8,4 @@ class PersonManager(models.Manager):
 
 class CallManager(models.Manager):
     def create(self, **data):
-        person = data.pop('person')
-        return self.model(person, **data)
+        return self.model(data.pop('person'), **data)

@@ -9,11 +9,11 @@ class Person(models.Model):
     class Role(models.TextChoices):
         GUEST = 'Guest'
         WORKER = 'Worker'
-        ADMIN = 'Admin'
 
     name = models.CharField(max_length=50, db_index=True)
     surname = models.CharField(max_length=50, db_index=True)
     patronymic = models.CharField(max_length=50)
+    role = models.CharField(choices=Role.choices, default=Role.GUEST, max_length=6)
 
     def __str__(self):
         return self.name, self.surname
