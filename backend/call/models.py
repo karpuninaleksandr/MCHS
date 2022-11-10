@@ -28,12 +28,12 @@ class Call(models.Model):
         UNKNOWN = 'Не знаю'
 
     person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='person')
-    workers = models.ManyToManyField(Person)
+    # workers = models.ManyToManyField(Person, default=None)
     reason = models.CharField(max_length=100)
     comment = models.TextField(max_length=100)
     injures = models.CharField(choices=Injury.choices, max_length=7)     # наличие жертв
-    latitude = models.FloatField()      # широта
-    longitude = models.FloatField()     # долгота
+    latitude = models.FloatField(default=0.0)      # широта
+    longitude = models.FloatField(default=0.0)     # долгота
 
     def __str__(self):
         return self.person, self.latitude, self.longitude

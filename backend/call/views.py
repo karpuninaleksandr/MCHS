@@ -7,13 +7,9 @@ from . import serializers
 
 class CallView(APIView):
     """Method for create call record"""
-
-    def handle_exception(self, exc):
-        print('sdf')
-
     @transaction.atomic
     def post(self, request):
-        ser = serializers.CallSerializer(data=request.data)
-        ser.is_valid(raise_exception=True)
-        ser.save()
+        serializers.CallSerializerForUpdateData(data=request.data).is_valid()
         return Response({'good': 'OK!'})
+
+#TODO обернутб в сепкруласс в котором будет прописана логика обработки исключений

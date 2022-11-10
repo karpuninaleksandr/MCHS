@@ -1,4 +1,3 @@
-from django.db import models
 from rest_framework import serializers
 from .models import Person, Call
 
@@ -12,23 +11,35 @@ class PersonSerializer(serializers.ModelSerializer):
 
 
 class PersonSerializerForCreateData(PersonSerializer):
-    def create(self, validated_data):
+    def create(self, validated_data) -> Person:
         return Person.objects.create(**validated_data)
 
 
 class CallSerializer(serializers.ModelSerializer):
-    person = PersonSerializerForCreateData()
-
-    @staticmethod
-    def validate_person(value):
-        try:
-            return Person.objects.get(**value)
-        except models.ObjectDoesNotExist:
-            return Person.objects.create(**value).save()
+    person = PersonSerializer()
 
     class Meta:
         model = Call
-        exclude = ['longitude', 'latitude', 'workers']
+        exclude = ['longitude', 'latitude']
 
-    def create(self, validated_data):
+
+class CallSerializerForUpdateData(CallSerializer):
+    person = PersonSerializerForCreateData()
+
+    @staticmethod
+    def validate_person(value) -> Person:
+        return Person.objects.get_person_for_new_call(**value)
+
+    def create(self, validated_data) -> Call:
         return Call.objects.create(**validated_data)
+
+    def is_valid(self, *, raise_exception=False) -> bool:
+        if not super().is_valid(raise_exception=raise_exception):
+            return False
+        self.save()
+        return True
+
+    def save(self, **kwargs) -> Call:
+        instance = super().save(**kwargs)
+        return instance.save()
+
