@@ -179,3 +179,8 @@ textarea {
     height: 90%;
     width: 100%;
 }
+
+.call li {
+    height: 60px;
+    border: solid;
+}
