@@ -1,7 +1,7 @@
 import React from 'react';
 import Headers from "./components/Header";
-import Accordion from "./components/Accordion";
-import Content from "./components/Content";
+import Accordion from "./components/GuestAccordion";
+import Content from "./components/GuestContent";
 
 function App() {
     return (
