@@ -8,7 +8,7 @@ function Management() {
         <div className = 'start'> 
             <Header />
             <ManagementAccordion />
-            {/* <ManagementContent /> */}
+            <ManagementContent />
             <ManagementRightAccordion />
         </div>
     )
