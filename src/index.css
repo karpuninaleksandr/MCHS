@@ -104,12 +104,14 @@ textarea {
     -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.3);
     box-shadow:0 10px 5px rgba(0,0,0,0.3);
     margin-left: -100px;
+    margin-top: 10px;
 }
 
 .registration:hover .FormRegistration {
     display: block;
     position: absolute;
-    z-index: 2;
+    background-color: white;
+    z-index: 3;
     width: 250px;
 }
 

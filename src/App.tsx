@@ -6,9 +6,9 @@ import Content from "./components/GuestContent";
 function App() {
     return (
         <div className = 'start'> 
+            <Content />
             <Headers  />
             <Accordion />
-            <Content />
         </div>
     )
  }
