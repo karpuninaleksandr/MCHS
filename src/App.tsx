@@ -5,7 +5,7 @@ import GuestContent from "./components/GuestContent";
 
 function App() {
     return (
-        <div className = 'start'> 
+        <div className = 'guest_start'> 
             <GuestContent /> 
             <GuestHeader  />
             <GuestAccordion />

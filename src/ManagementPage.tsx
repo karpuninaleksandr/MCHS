@@ -5,10 +5,10 @@ import ManagementRightAccordion from "./components/ManagementRightAccordion"
 
 function Management() {
     return (
-        <div className = 'start'> 
+        <div className = 'management_start'> 
             <Header />
             <ManagementAccordion />
-            {/* <ManagementContent /> */}
+            <ManagementContent />
             <ManagementRightAccordion />
         </div>
     )
