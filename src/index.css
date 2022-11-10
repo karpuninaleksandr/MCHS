@@ -4,7 +4,16 @@
     box-sizing: border-box;
 }
 
-.start {
+.guest_start {
+    display: grid;
+    height: 100vh;
+    overflow:hidden;
+    grid-template-columns: 300px 1fr min-content;
+    grid-template-rows: min-content 1fr min-content;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.management_start {
     display: grid;
     height: 100vh;
     overflow:hidden;
