@@ -15,7 +15,7 @@ export default function Content() {
         setPlacemarkCoords(placemarkDragCoords)
     }
     return (
-        <div className = "content">
+        <div className = "guest_content">
             <p>Место для вашей рекламы</p>
             <YMaps>
                 <Map state={mapState} instanceRef={map} className = "map">

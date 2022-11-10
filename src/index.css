@@ -13,7 +13,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.accordion {
+.guest_accordion {
     background-color: #FFFFE0;
     padding: 15px;
     grid-row: 2 / 3;
@@ -23,7 +23,27 @@
     padding-left: 10px;
 }
 
-.header{
+.management_accordion {
+    background-color: #FFFFE0;
+    padding: 15px;
+    grid-row: 2 / 3;
+    grid-column: 1;
+    color:black;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.management_right_accordion {
+    background-color: #FFFFE0;
+    padding: 15px;
+    grid-row: 2 / 3;
+    grid-column: 3;
+    color:black;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.guest_header{
     height: 50px;
     padding-top: 5px;
     background-color: #F0E68C;
@@ -58,7 +78,7 @@
     margin-left: 40px;
 }
 
-.content {
+.guest_content {
     box-shadow: 0 0 0 1px #222222;
     background-color: white;
     grid-column: 2;
@@ -68,7 +88,17 @@
     color: black;
 }
 
-.form {
+.management_content {
+    box-shadow: 0 0 0 1px #222222;
+    background-color: white;
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 20px;
+    padding-right: 30px;
+    color: black;
+}
+
+.guest_form {
     padding: 5px;
     height: 80%
 }
@@ -97,7 +127,7 @@ textarea {
     margin-left: auto;
 }
 
-.FormRegistration {
+.registration_form {
     padding: 15px;
     display: none;   
     -moz-box-shadow:0 5px 5px rgba(0,0,0,0.3);
@@ -106,7 +136,7 @@ textarea {
     margin-left: -100px;
 }
 
-.registration:hover .FormRegistration {
+.registration:hover .registration_form {
     display: block;
     position: absolute;
     z-index: 2;
