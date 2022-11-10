@@ -1,15 +1,15 @@
-import Headers from "./components/Header";
-import Accordion from "./components/GuestAccordion";
-import Content from "./components/GuestContent";
-import Footer from "./components/Footer";
+import Header from "./components/ManagementHeader";
+import ManagementAccordion from "./components/ManagementAccordion";
+import ManagementContent from "./components/ManagementContent";
+import ManagementRightAccordion from "./components/ManagementRightAccordion"
 
 function Management() {
     return (
         <div className = 'start'> 
-            <Headers />
-            <Accordion />
-            <Content />
-            <Footer />
+            <Header />
+            <ManagementAccordion />
+            {/* <ManagementContent /> */}
+            <ManagementRightAccordion />
         </div>
     )
  }

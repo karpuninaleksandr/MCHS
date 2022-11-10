@@ -71,7 +71,7 @@ export default class ClientInput extends React.Component {
 
     render() {
         return (
-            <div className = "form">
+            <div className = "guest_form">
                 <form onSubmit={this.handleSubmit}>
                 <div className="input_info">
                     <p>Фамилия:</p>

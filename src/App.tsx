@@ -1,14 +1,14 @@
 import React from 'react';
-import Headers from "./components/Header";
-import Accordion from "./components/GuestAccordion";
-import Content from "./components/GuestContent";
+import GuestHeader from "./components/GuestHeader";
+import GuestAccordion from "./components/GuestAccordion";
+import GuestContent from "./components/GuestContent";
 
 function App() {
     return (
         <div className = 'start'> 
-            <Content />
-            <Headers  />
-            <Accordion />
+            <GuestContent /> 
+            <GuestHeader  />
+            <GuestAccordion />
         </div>
     )
  }
