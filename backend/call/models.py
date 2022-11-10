@@ -25,15 +25,15 @@ class Call(models.Model):
     class Injury(models.TextChoices):
         YES = 'Да'
         NO = 'Нет'
-        UNKNOWN = 'Не знаю'
+        UNKNOWN = 'Нет информации'
 
     person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='person')
     # workers = models.ManyToManyField(Person, default=None)
     reason = models.CharField(max_length=100)
     comment = models.TextField(max_length=100)
-    injures = models.CharField(choices=Injury.choices, max_length=7)     # наличие жертв
-    latitude = models.FloatField(default=0.0)      # широта
-    longitude = models.FloatField(default=0.0)     # долгота
+    injures = models.CharField(choices=Injury.choices, max_length=20)     # наличие жертв
+    # latitude = models.FloatField(default=0.0)      # широта
+    # longitude = models.FloatField(default=0.0)     # долгота
 
     def __str__(self):
         return self.person, self.latitude, self.longitude

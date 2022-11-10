@@ -20,7 +20,8 @@ class CallSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Call
-        exclude = ['longitude', 'latitude']
+        fields = '__all__'
+        # exclude = ['longitude', 'latitude']
 
 
 class CallSerializerForUpdateData(CallSerializer):
@@ -33,13 +34,7 @@ class CallSerializerForUpdateData(CallSerializer):
     def create(self, validated_data) -> Call:
         return Call.objects.create(**validated_data)
 
-    def is_valid(self, *, raise_exception=False) -> bool:
-        if not super().is_valid(raise_exception=raise_exception):
-            return False
-        self.save()
-        return True
-
     def save(self, **kwargs) -> Call:
-        instance = super().save(**kwargs)
-        return instance.save()
+        (instance := super().save(**kwargs)).save()
+        return instance
 

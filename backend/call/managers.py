@@ -1,24 +1,26 @@
 from django.db import models
 
 
-class PersonManager(models.Manager):
+class MyManager(models.Manager):
     def create(self, **data):
         return self.model(**data)
 
-    @staticmethod
-    def get_person_for_new_call(**value):
+
+class PersonManager(MyManager):
+    def get_person_for_new_call(self, **value):
         """
         Если человек уже делал вызовы берем его из базы
         Иначе создаем запись в базе
         """
         try:
-            return PersonManager.get(**value)
+            return self.get(**value)
         except models.ObjectDoesNotExist:
-            return PersonManager.create(**value).save()
+            (instance := self.create(**value)).save()
+            return instance
 
 
-class CallManager(models.Manager):
-    def create(self, **data):
-        return self.model(person=data.pop('person'), **data)
+class CallManager(MyManager):
+    ...
+
 
 
