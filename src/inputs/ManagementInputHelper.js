@@ -1,8 +1,15 @@
 export default function ManagementInput(props) {
-    if (props.call == undefined) return <p>Null</p>
+    if (props.call == undefined) return <p>Выберите вызов</p>
     else 
     return <div className="box_name">
-            {props.call.person.surname}{props.call.person.name}{props.call.patronymic}
-            {props.call.comment}
-        </div>
+        <p>Пострадавший:</p>
+        <br></br>
+        <p>{props.call.person.surname}</p>
+        <p>{props.call.person.name}</p>
+        <p>{props.call.person.patronymic}</p>
+        <br></br>
+        <p>Комментарий пострадавшего: {props.call.comment}</p>
+        <br></br>
+        <p>Необходимость в оказании первой помощи: {props.call.injures}</p>
+    </div>
 }

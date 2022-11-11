@@ -5,24 +5,24 @@ export default function ManagementOutput(props) {
         id: 9,
         person: {
             id: 23,
-            name: "NAME",
-            surname: "SURNAME",
-            patronymic: "PATRONYMIC"
+            name: "Евгений",
+            surname: "Скворечкин",
+            patronymic: "Сергеевич"
         },
-        reason: "REASON",
-        comment: "COMMENT",
-        injures: "INJURES"
+        reason: "Наводнение",
+        comment: "Затопило подвал и меня вместе с ним",
+        injures: "Да"
     },{
         id: 10,
         person: {
-            id: 23,
-            name: "NAME",
-            surname: "SURNAME",
-            patronymic: "PATRONYMIC"
+            id: 232,
+            name: "Илья",
+            surname: "Козлов",
+            patronymic: "Олегович"
         },
-        reason: "REASON",
-        comment: "COMMENT",
-        injures: "INJURES"
+        reason: "Пожар",
+        comment: "Жарил курицу загорелась рука",
+        injures: "Да"
     }]
 
     return (

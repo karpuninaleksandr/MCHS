@@ -4,9 +4,25 @@ export default function ManagementGet() {
         {
             person: {
                 id: 1,
-                surname: "SURNAME",
-                name: "NAME",
-                patronymic: "PATRONYMIC"
+                surname: "Карпунин",
+                name: "Александр",
+                patronymic: "Олегович"
+            }
+        },
+        {
+            person: {
+                id: 2,
+                surname: "Бурлова",
+                name: "Виктория",
+                patronymic: "Александровна"
+            }
+        },
+        {
+            person: {
+                id: 3,
+                surname: "Роганин",
+                name: "Егор",
+                patronymic: "Ильич"
             }
         }
     ] 
@@ -18,7 +34,7 @@ export default function ManagementGet() {
             data.map(man => (
                 <li key={man.person.id}>
                     <div>
-                        <p>{man.person.surname} {man.person.name} {man.person.patronymic}</p>
+                        <p>{man.person.surname}</p> <p>{man.person.name}</p> <p>{man.person.patronymic}</p>
                     </div>
                 </li>
             ))
