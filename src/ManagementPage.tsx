@@ -1,15 +1,18 @@
-import Headers from "./components/Header";
-import Accordion from "./components/Accordion";
-import Content from "./components/Content";
-import Footer from "./components/Footer";
+import Header from "./components/ManagementHeader";
+import ManagementAccordion from "./components/ManagementAccordion";
+import ManagementContent from "./components/ManagementContent";
+import ManagementRightAccordion from "./components/ManagementRightAccordion"
+import { useState } from "react";
 
 function Management() {
+    const[call, setCall] = useState(null)
+
     return (
-        <div className = 'start'> 
-            <Headers />
-            <Accordion />
-            <Content />
-            <Footer />
+        <div className = 'management_start'> 
+            <Header />
+            <ManagementAccordion updateCall = {setCall} />
+            <ManagementContent />
+            <ManagementRightAccordion call = {call} />
         </div>
     )
  }

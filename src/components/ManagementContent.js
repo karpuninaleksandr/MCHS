@@ -1,7 +1,7 @@
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import { useRef, useState } from "react"
 
-export default function Content() {
+export default function ManagementContent() {
     const map = useRef(null);
     const[placemarkCoords, setPlacemarkCoords] = useState([57.619234, 39.899597])
     const mapState = {
@@ -15,7 +15,7 @@ export default function Content() {
         setPlacemarkCoords(placemarkDragCoords)
     }
     return (
-        <div className = "content">
+        <div className = "management_content">
             <p>Место для вашей рекламы</p>
             <YMaps>
                 <Map state={mapState} instanceRef={map} className = "map">

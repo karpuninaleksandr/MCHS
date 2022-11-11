@@ -10,6 +10,8 @@ export default class ClientInput extends React.Component {
           patronymic: "",
           reason: "Другое",
           comment: "", 
+          //   coordinateX: 57.6317512,
+          //   coordinateY: 39.8858899,
           injures: "Нет информации"
         };
     
@@ -67,11 +69,13 @@ export default class ClientInput extends React.Component {
         const patronymic = event.target.patronymic.value
         const reason = event.target.reason.value
         const comment = event.target.comment.value
+        // const coordinateX = props.coordinateX
+        // const coordinateY = props.coordinateY
       }
 
     render() {
         return (
-            <div className = "form">
+            <div className = "guest_form">
                 <form onSubmit={this.handleSubmit}>
                 <div className="input_info">
                     <p>Фамилия:</p>
