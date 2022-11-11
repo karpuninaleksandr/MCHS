@@ -1,7 +1,11 @@
-export default function ManagementRightAccordion() {
+import ManagementGet from "../inputs/ManagementGetHelper"
+import ManagementInput from "../inputs/ManagementInputHelper"
+
+export default function ManagementRightAccordion(props) {
     return (
         <div className = "management_right_accordion">
-            <p>выбор людишек</p>
+            <ManagementInput call = {props.call}/>
+            <ManagementGet/>
         </div>
     )
 }

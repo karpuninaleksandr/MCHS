@@ -1,9 +1,9 @@
-import ClientInput from "../inputs/InputHelper"
+import GuestInput from "../inputs/GuestInputHelper"
 
 export default function Accordion() {
     return (
         <div className = "guest_accordion">
-            <ClientInput />
+            <GuestInput />
         </div>
     )
 }

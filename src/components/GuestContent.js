@@ -5,14 +5,11 @@ export default function Content() {
     const map = useRef(null);
     const[placemarkCoords, setPlacemarkCoords] = useState([57.619234, 39.899597])
     const mapState = {
-        center: [57.619234, 39.899597],
+        center: placemarkCoords,
         zoom: 15
     }
     const handleDrag = (e) => {
-        let placemarkDragCoords = (e.get('target').geometry.getCoordinates())
-        console.log(placemarkDragCoords)
-        if (map.current) map.current.setCenter(placemarkCoords)
-        setPlacemarkCoords(placemarkDragCoords)
+        setPlacemarkCoords(e.get('target').geometry.getCoordinates())
     }
     return (
         <div className = "guest_content">
@@ -21,7 +18,6 @@ export default function Content() {
                 <Map state={mapState} instanceRef={map} className = "map">
                     <Placemark
                         onDragEnd = {handleDrag}
-                        // geometry={[57.619234, 39.899597]}
                         geometry={placemarkCoords}
                         options={{
                             preset: 'islands#redDotIcon',

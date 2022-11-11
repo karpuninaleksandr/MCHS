@@ -30,6 +30,9 @@
     color:black;
     padding-top: 20px;
     padding-left: 10px;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
 }
 
 .management_accordion {
@@ -50,6 +53,9 @@
     color:black;
     padding-top: 20px;
     padding-left: 10px;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
 }
 
 .guest_header{

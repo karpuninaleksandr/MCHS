@@ -1,15 +1,9 @@
-import ClientInput from "../inputs/InputHelper"
+import ManagementOutput from "../inputs/ManagementOutputHelper"
 
-export default function ManagementAccordion() {
+export default function ManagementAccordion(props) {
     return (
         <div className = "management_accordion">
-            <h3>Вызовы</h3>
-            <ul className="call">
-                <li>Пожар</li>
-                <li>Другое</li>
-                <li>Другое</li>
-                <li>Пожар</li>
-            </ul>
+            <ManagementOutput updateCall = {props.updateCall} />
         </div>
     )
 }

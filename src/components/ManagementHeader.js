@@ -7,12 +7,9 @@ export default function ManagementHeader() {
         <div className = "guest_header">
             <h2>Служба защиты Онлайн</h2>
             <div className = "registration">
-                <button className = 'button_entrance'>Выход</button>
-                <div className = "registration_form">
-                    <NavLink className="nav-link" to="/">
-                        <button className = "entry">ОК</button>
-                    </NavLink>
-                </div>
+                <NavLink className="nav-link" to="/">
+                    <button className = 'button_entrance'>Выход</button>
+                </NavLink>
             </div>
         </div>
     )
