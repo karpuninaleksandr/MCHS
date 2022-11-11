@@ -160,7 +160,7 @@ textarea {
     width: 250px;
 }
 
-.button_entrance:hover {
+.button_entrance:hover, .management_call_list li:hover {
     background-color: rgba(99, 12, 12, 0.411);
 }
 
@@ -194,7 +194,21 @@ textarea {
     width: 100%;
 }
 
-.call li {
+.management_call_list li {
     height: 60px;
     border: solid;
+    border-width: 1px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.management_people_list li {
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #BDB76B;
+    box-shadow: 0 0 0 1px #222222;
+    display: flex;
+}
+.box_name {
+  flex-wrap: nowrap;
 }

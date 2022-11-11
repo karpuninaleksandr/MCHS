@@ -1,31 +1,29 @@
 export default function ManagementGet() {
     const data = 
-    // [
-    //     {
-    //         person: {
-    //             id: 1,
-    //             surname: "SURNAME",
-    //             name: "NAME",
-    //             patronymic: "PATRONYMIC"
-    //         }
-    //     }
-    // ] 
-    getPeopleList()
+     [
+        {
+            person: {
+                id: 1,
+                surname: "SURNAME",
+                name: "NAME",
+                patronymic: "PATRONYMIC"
+            }
+        }
+    ] 
+    //getPeopleList()
 
     console.log(data)
-    return <div className="management_people_list">
+    return <ul className="management_people_list">
         {
             data.map(man => (
                 <li key={man.person.id}>
                     <div>
-                        <p>{man.person.surname}</p>
-                        <p>{man.person.name}</p>
-                        <p>{man.person.patronymic}</p>
+                        <p>{man.person.surname} {man.person.name} {man.person.patronymic}</p>
                     </div>
                 </li>
             ))
         }
-    </div>
+    </ul>
 }
 
 function getPeopleList() {
@@ -38,6 +36,6 @@ function getPeopleList() {
             }
         }
     )
-    .then(function(res) { return res.json() })
-    .catch(function(res) { console.log(res) })
+    .then(function(res) { console.log(res);console.log(res.json());return res.json() })
+    .catch(function(res) { console.log(res); return undefined})
 }
