@@ -26,7 +26,7 @@ class PersonView(APIView):
         serializer = serializers.PersonSerializerForGetMethod(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    @transaction.atomic()
+    @transaction.atomic
     def post(self, request):
         (serializer := serializers.PersonSerializerForUpdateData(data=request.data)).is_valid(raise_exception=True)
         serializer.save()
