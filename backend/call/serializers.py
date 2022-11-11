@@ -1,16 +1,14 @@
 from rest_framework import serializers
-from rest_framework.fields import empty
-
 from .models import Person, Call
 
 
+class PersonSerializerForGetMethod(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        exclude = ['role']
+
+
 class PersonSerializer(serializers.ModelSerializer):
-
-    role = serializers.CharField(default=Person.Role.GUEST)
-
-    def __init__(self, instance=None, data=empty, **kwargs):
-        super().__init__(instance, data, **kwargs)
-
     class Meta:
         model = Person
         fields = '__all__'
@@ -33,6 +31,10 @@ class CallSerializer(serializers.ModelSerializer):
         model = Call
         fields = '__all__'
         # exclude = ['longitude', 'latitude']
+
+
+class CallSerializerForGetMethod(CallSerializer):
+    person = PersonSerializerForGetMethod()
 
 
 class CallSerializerForUpdateData(CallSerializer):

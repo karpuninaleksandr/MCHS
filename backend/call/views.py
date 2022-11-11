@@ -14,18 +14,17 @@ class CallView(APIView):
         serializer.save()
         return Response(status=status.HTTP_200_OK)
 
-    @staticmethod
-    def get():
+    def get(self, request):
         queryset = Call.objects.all()
-        serializer = serializers.CallSerializer(queryset, many=True)
+        serializer = serializers.CallSerializerForGetMethod(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class PersonView(APIView):
-    @staticmethod
-    def get():
+    def get(self, request):
         queryset = Person.objects.all()
-        serializer = serializers.PersonSerializer(queryset, many=True)
+        serializer = serializers.PersonSerializerForGetMethod(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     @transaction.atomic()
     def post(self, request):
