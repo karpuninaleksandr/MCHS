@@ -1,29 +1,5 @@
 export default function ManagementOutput(props) {
-    const data = 
-    //getCallList()
-    [{
-        id: 9,
-        person: {
-            id: 23,
-            name: "Евгений",
-            surname: "Скворечкин",
-            patronymic: "Сергеевич"
-        },
-        reason: "Наводнение",
-        comment: "Затопило подвал и меня вместе с ним",
-        injures: "Да"
-    },{
-        id: 10,
-        person: {
-            id: 232,
-            name: "Илья",
-            surname: "Козлов",
-            patronymic: "Олегович"
-        },
-        reason: "Пожар",
-        comment: "Жарил курицу загорелась рука",
-        injures: "Да"
-    }]
+    const data = getCallList()
 
     return (
         <ul className = "management_call_list">
