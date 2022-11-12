@@ -36,4 +36,4 @@ class Call(models.Model):
     # longitude = models.FloatField(default=0.0)     # долгота
 
     def __str__(self):
-        return self.person, self.latitude, self.longitude
+        return self.person #, self.latitude, self.longitude
