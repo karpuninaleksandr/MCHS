@@ -1,32 +1,5 @@
 export default function ManagementGet() {
-    const data = 
-     [
-        {
-            person: {
-                id: 1,
-                surname: "Карпунин",
-                name: "Александр",
-                patronymic: "Олегович"
-            }
-        },
-        {
-            person: {
-                id: 2,
-                surname: "Бурлова",
-                name: "Виктория",
-                patronymic: "Александровна"
-            }
-        },
-        {
-            person: {
-                id: 3,
-                surname: "Роганин",
-                name: "Егор",
-                patronymic: "Ильич"
-            }
-        }
-    ] 
-    //getPeopleList()
+    const data = getPeopleList()
 
     console.log(data)
     return <ul className="management_people_list">
