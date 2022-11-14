@@ -1,3 +1,5 @@
 from django.contrib import admin
+from backend.call.models import Call, Person
 
-# Register your models here.
+admin.site.register(Call)
+admin.site.register(Person)
