@@ -62,9 +62,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backend.urls'
 
-INDEX_HTML_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'public', 'index.html')
-
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
