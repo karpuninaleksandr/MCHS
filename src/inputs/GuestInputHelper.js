@@ -10,6 +10,8 @@ export default class ClientInput extends React.Component {
           patronymic: "",
           reason: "Другое",
           comment: "", 
+          //   coordinateX: 57.6317512,
+          //   coordinateY: 39.8858899,
           injures: "Нет информации"
         };
     
@@ -20,19 +22,28 @@ export default class ClientInput extends React.Component {
 
     send() {
         if ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")) {
-            fetch("http://localhost:8000/api/frontend",
+            fetch("http://localhost:8000/api/calls",
             {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(this.state)
+                body: JSON.stringify({
+                    person: {
+                        surname: this.state.surname,
+                        name: this.state.name,
+                        patronymic: this.state.patronymic
+                    },
+                    reason: this.state.reason,
+                    comment: this.state.comment, 
+                    injures: this.state.injures
+                })
             })
             .then(function(res){ console.log(res) })
             .catch(function(res){ console.log(res) })
         } else console.log("Fill the form you moron") 
-        //наверное стоит объяснить челвеку, что форма должна быть заполнена понятнее
+        //наверное стоит объяснить челвеку, что форма должна быть заполнена, понятнее
         //но пока пусть будет так
     }
 
@@ -58,11 +69,13 @@ export default class ClientInput extends React.Component {
         const patronymic = event.target.patronymic.value
         const reason = event.target.reason.value
         const comment = event.target.comment.value
+        // const coordinateX = props.coordinateX
+        // const coordinateY = props.coordinateY
       }
 
     render() {
         return (
-            <div className = "form">
+            <div className = "guest_form">
                 <form onSubmit={this.handleSubmit}>
                 <div className="input_info">
                     <p>Фамилия:</p>
