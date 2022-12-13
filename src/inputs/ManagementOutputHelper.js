@@ -1,8 +1,14 @@
-export default function ManagementOutput(props) {
-    const data = getCallList()
+import { useState, useEffect } from "react"
+import Api from "./api"
 
-    return (
-        <ul className = "management_call_list">
+export default function ManagementOutput(props) {
+    const[data, setData] = useState(null)
+    useEffect(()=> {
+        Api.fetchData("http://localhost:8000/api/calls").then(data => setData(data))
+    }, [])
+
+    return <> {
+        data ? <ul className = "management_call_list">
             {
                 data.map(call => (
                     <li key={call.id} onClick={() => props.updateCall(call)}>
@@ -19,26 +25,6 @@ export default function ManagementOutput(props) {
                     </li>
                 ))
             }
-        </ul>
-    )
-}
-
-
-
-async function getCallList() {
-    try{
-        const result = await fetch("http://localhost:8000/api/calls",
-        {
-            method: "GET",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        });
-        const datas = await result.json();
-        return datas;
-    } catch (error) {
-        console.error('Ошибка:', error);
-        return null;
-    }
+        </ul> : <p>Нет происшествий</p>
+ } </>
 }

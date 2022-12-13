@@ -1,30 +1,24 @@
-export default function ManagementGet() {
-    const data = getPeopleList()
+import { useState, useEffect } from "react"
+import Api from "./api"
 
+export default function ManagementGet() {
+    const[data, setData] = useState(null)
+    useEffect(()=> {
+        Api.fetchData("http://localhost:8000/api/persons").then(data => setData(data))
+    }, [])
     console.log(data)
-    return <ul className="management_people_list">
-        {
-            data.map(man => (
-                <li key={man.person.id}>
+    
+    return <>
+        {data ? <ul className="management_people_list">
+            {data.map(man => (
+                <li key={man.id}>
                     <div>
-                        <p>{man.person.surname}</p> <p>{man.person.name}</p> <p>{man.person.patronymic}</p>
+                        <p>{man.surname} {man.name} {man.patronymic}</p>
                     </div>
                 </li>
-            ))
-        }
-    </ul>
+            ))}
+            </ul> : <p>Нет данных о работниках</p>
+        } 
+    </> 
 }
 
-function getPeopleList() {
-    fetch("http://localhost:8000/api/persons",
-        {
-            method: "GET",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        }
-    )
-    .then(function(res) { console.log(res);console.log(res.json());return res.json() })
-    .catch(function(res) { console.log(res); return undefined})
-}

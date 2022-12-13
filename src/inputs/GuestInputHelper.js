@@ -10,8 +10,8 @@ export default class ClientInput extends React.Component {
           patronymic: "",
           reason: "Другое",
           comment: "", 
-          //   coordinateX: 57.6317512,
-          //   coordinateY: 39.8858899,
+          coordinateX: 57.6317512,
+          coordinateY: 39.8858899,
           injures: "Нет информации"
         };
     
