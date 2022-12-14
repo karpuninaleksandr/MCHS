@@ -32,7 +32,7 @@ class CallView(APIView):
 
 class PersonView(APIView):
     def get(self, request):
-        queryset = Person.objects.all(role=Role.WORKER)
+        queryset = Person.objects.filter(role=Role.WORKER)
         serializer = serializers.PersonSerializerForGetMethod(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
