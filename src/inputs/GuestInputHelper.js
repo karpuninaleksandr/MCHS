@@ -45,8 +45,10 @@ export default class ClientInput extends React.Component {
             .then(function(res){ console.log(res) })
             .catch(function(res){ console.log(res) })
         } else console.log("Fill the form you moron") 
-        //наверное стоит объяснить челвеку, что форма должна быть заполнена, понятнее
+        //наверное стоит объяснить челoвеку, что форма должна быть заполнена, понятнее
         //но пока пусть будет так
+        console.log(this.state.coordinateX)
+        console.log(this.state.coordinateY)
     }
 
     handleInputChange(event) {
@@ -71,8 +73,8 @@ export default class ClientInput extends React.Component {
         const patronymic = event.target.patronymic.value
         const reason = event.target.reason.value
         const comment = event.target.comment.value
-        // const coordinateX = props.coordinateX
-        // const coordinateY = props.coordinateY
+        const coordinateX = this.props.coordX
+        const coordinateY = this.props.coordY
       }
 
     render() {

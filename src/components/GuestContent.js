@@ -1,7 +1,7 @@
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import { useRef, useState } from "react"
 
-export default function Content() {
+export default function Content(props) {
     const map = useRef(null);
     const[placemarkCoords, setPlacemarkCoords] = useState([57.619234, 39.899597])
     const mapState = {
@@ -10,6 +10,8 @@ export default function Content() {
     }
     const handleDrag = (e) => {
         setPlacemarkCoords(e.get('target').geometry.getCoordinates())
+        props.updateCoordX(placemarkCoords[0])
+        props.updateCoordY(placemarkCoords[1])
     }
     return (
         <div className = "guest_content">
