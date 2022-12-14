@@ -8,6 +8,7 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     path('api/calls', views.CallView.as_view()),
+    path('api/calls/with-peoples', views.CallWithPeoplesView.as_view()),
     path('api/persons', views.PersonView.as_view()),
     # path('^', include(router.urls))
 ]
