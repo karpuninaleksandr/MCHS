@@ -4,7 +4,7 @@ import Api from "./api"
 export default function ManagementGet() {
     const[data, setData] = useState(null)
     useEffect(()=> {
-        // Api.fetchData("http://localhost:8000/api/persons").then(data => setData(data))
+        Api.fetchData("http://localhost:8000/api/persons").then(data => setData(data))
     }, [])
     console.log(data)
     
