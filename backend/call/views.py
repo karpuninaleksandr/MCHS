@@ -21,9 +21,6 @@ class CallView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request):
-        ...
-        # TODO вынуть id вызова из request, проверить есть ли вызов в базе
-        #   вынуть id работников из request, посмотреть есть ли они там и записать их на вызов
         call_id = request.get('id')
         call = Call.objects.get(id=call_id)
         workers_id = request.get('workers')
