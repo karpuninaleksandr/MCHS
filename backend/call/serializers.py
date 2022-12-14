@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from .choices import Role
 from .models import Person, Call
 
 
@@ -15,6 +17,8 @@ class PersonSerializer(serializers.ModelSerializer):
 
 
 class PersonSerializerForUpdateData(PersonSerializer):
+
+    role = serializers.CharField(default=Role.WORKER)
 
     def create(self, validated_data) -> Person:
         return Person.objects.create(**validated_data)
