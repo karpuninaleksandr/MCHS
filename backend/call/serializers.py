@@ -20,11 +20,12 @@ class PersonSerializer(serializers.ModelSerializer):
 class PersonSerializerForUpdateData(PersonSerializer):
 
     def create(self, validated_data) -> Person:
-        return Person.objects.create(**validated_data)
+        r = Person.objects.create(**validated_data)
+        return r
 
     def save(self, **kwargs) -> Person:
-        (instance := super().save(**kwargs)).save()
-        return instance
+        r = super().save(**kwargs)
+        return r
 
 
 class PersonSerializerForAddWorker(PersonSerializerForUpdateData):
@@ -40,8 +41,12 @@ class CallSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CallSerializerForGetMethod(CallSerializer):
-    person = PersonSerializerForGetMethod()
+class CallSerializerForGetMethod(serializers.ModelSerializer):
+
+    class Meta:
+        model = Call
+        fields = '__all__'
+    # person = PersonSerializerForGetMethod()
 
 
 class CallSerializerForUpdateData(CallSerializer):
@@ -49,12 +54,15 @@ class CallSerializerForUpdateData(CallSerializer):
 
     @staticmethod
     def validate_person(value) -> Person:
-        return Person.objects.get_person_for_new_call(**value)
+        r = Person.objects.get_person_for_new_call(**value)
+        return r
 
     def create(self, validated_data) -> Call:
-        return Call.objects.create(**validated_data)
+        r = Call.objects.create(**validated_data)
+        return r
 
     def save(self, **kwargs) -> Call:
-        (instance := super().save(**kwargs)).save()
-        return instance
+        r = super().save(**kwargs)
+        return r
+
 

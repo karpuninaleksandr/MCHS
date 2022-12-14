@@ -7,7 +7,6 @@ from .managers import PersonManager, CallManager
 class Call(models.Model):
     objects = CallManager()
 
-    person = models.ForeignKey('Person', on_delete=models.CASCADE, related_name='person')
     reason = models.CharField(max_length=100)
     comment = models.TextField(max_length=100)
     injures = models.CharField(choices=Injury.choices, max_length=20)     # наличие жертв
@@ -25,9 +24,12 @@ class Person(models.Model):
     surname = models.CharField(max_length=50, db_index=True)
     patronymic = models.CharField(max_length=50)
     role = models.CharField(choices=Role.choices, default=Role.GUEST, max_length=6)
-    call = models.ForeignKey(Call, on_delete=models.CASCADE, related_name='call', blank=True, null=True)
+    call = models.ManyToManyField(Call, blank=True, null=True, through='CallToPerson')
 
     def __str__(self):
-        return self.name, self.surname
+        return f'{self.name}, {self.surname}'
 
 
+class CallToPerson(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    call = models.ForeignKey(Call, on_delete=models.CASCADE)

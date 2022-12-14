@@ -1,12 +1,7 @@
 from django.db import models
 
 
-class MyManager(models.Manager):
-    def create(self, **data):
-        return self.model(**data)
-
-
-class PersonManager(MyManager):
+class PersonManager(models.Manager):
     def get_person_for_new_call(self, **value):
         """
         Если человек уже делал вызовы берем его из базы
@@ -15,12 +10,16 @@ class PersonManager(MyManager):
         try:
             return self.get(**value)
         except models.ObjectDoesNotExist:
-            (instance := self.create(**value)).save()
-            return instance
+            r= super().create(**value)
+            return r
 
 
-class CallManager(MyManager):
-    ...
+class CallManager(models.Manager):
+    def create(self, **data):
+        person = data.pop('person')
+        call = super().create(**data)
+        person.call.add(call)
+        return call
 
 
 

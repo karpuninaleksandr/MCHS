@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from . import serializers
 from .choices import Role
 from .models import Call, Person
+from django.db.models.query import Prefetch
 
 
 class CallView(APIView):
@@ -16,7 +17,7 @@ class CallView(APIView):
         return Response(status=status.HTTP_200_OK)
 
     def get(self, request):
-        queryset = Call.objects.filter(workers__isnull=False)
+        queryset = Call.objects.filter(calltoperson__person__role=Role.WORKER)
         serializer = serializers.CallSerializerForGetMethod(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -26,8 +27,7 @@ class CallView(APIView):
         workers_id = request.get('workers')
         workers = Person.objects.filter(id__in=workers_id)
         for worker in workers:
-            worker.call = call
-            worker.save()
+            worker.call.set(call)
 
 
 class PersonView(APIView):
