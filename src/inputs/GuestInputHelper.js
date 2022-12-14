@@ -37,6 +37,8 @@ export default class ClientInput extends React.Component {
                     },
                     reason: this.state.reason,
                     comment: this.state.comment, 
+                    coordinateX: this.state.coordinateX,
+                    coordinateY: this.state.coordinateY,
                     injures: this.state.injures
                 })
             })
