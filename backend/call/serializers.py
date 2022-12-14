@@ -5,6 +5,7 @@ from .models import Person, Call
 
 
 class PersonSerializerForGetMethod(serializers.ModelSerializer):
+
     class Meta:
         model = Person
         exclude = ['role']
@@ -18,14 +19,17 @@ class PersonSerializer(serializers.ModelSerializer):
 
 class PersonSerializerForUpdateData(PersonSerializer):
 
-    role = serializers.CharField(default=Role.WORKER)
-
     def create(self, validated_data) -> Person:
         return Person.objects.create(**validated_data)
 
     def save(self, **kwargs) -> Person:
         (instance := super().save(**kwargs)).save()
         return instance
+
+
+class PersonSerializerForAddWorker(PersonSerializerForUpdateData):
+
+    role = serializers.CharField(default=Role.WORKER)
 
 
 class CallSerializer(serializers.ModelSerializer):

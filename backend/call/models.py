@@ -11,8 +11,8 @@ class Call(models.Model):
     reason = models.CharField(max_length=100)
     comment = models.TextField(max_length=100)
     injures = models.CharField(choices=Injury.choices, max_length=20)     # наличие жертв
-    latitude = models.FloatField(default=0.0)      # широта
-    longitude = models.FloatField(default=0.0)     # долгота
+    coordinateX = models.FloatField(default=0.0)      # широта
+    coordinateY = models.FloatField(default=0.0)     # долгота
 
     def __str__(self):
         return self.reason #, self.latitude, self.longitude
