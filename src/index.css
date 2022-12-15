@@ -209,6 +209,36 @@ textarea {
     box-shadow: 0 0 0 1px #222222;
     display: flex;
 }
+
 .box_name {
   flex-wrap: nowrap;
 }
+.new_worker {
+    position: relative;
+}
+.new_worker_form {
+   
+        /* Скрываем окна  */
+        
+        
+        /*  Установаем ширину окна  */
+        width: 30%;
+        max-width: 500px;
+        
+        /*  Центрируем и задаем z-index */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3000; /* Должен быть выше чем у подложки*/
+        
+        /*  Побочные стили   */
+        box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2); 
+        text-align: center;
+        padding: 30px;
+        border-radius: 3px;
+        background-color: red;
+        transition: 0.3s all;
+     
+}
+

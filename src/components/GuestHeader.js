@@ -6,7 +6,7 @@ export default function Header() {
     const[login, setLogin] = useState()
     const[password, setRassword] = useState()
 
-    const {AuthContext, setAuthContext} = useContext(Authorizatoin)
+    const {setAuthContext} = useContext(Authorizatoin)
 
     return (
         <div className = "guest_header">
@@ -21,9 +21,8 @@ export default function Header() {
                     {
                         login == 'system' && password == 'masterkey' ? 
                             <>
-                                {setAuthContext(true)}
                                 <NavLink className="nav-link" to="/management">
-                                    <button className = "entry">ОК</button>
+                                    <button onClick={setAuthContext(true)} className = "entry">ОК</button>
                                 </NavLink>
                             </>
                         : <button className = "entry">ОК</button>

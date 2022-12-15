@@ -8,7 +8,7 @@ import { Authorizatoin } from "./index.js"
 
 function Management() {
     const[call, setCall] = useState(null)
-    const {AuthContext, setAuthContext} = useContext(Authorizatoin)
+    const {AuthContext} = useContext(Authorizatoin)
     return (
         <div className = 'management_start'> 
             {AuthContext == true ?
