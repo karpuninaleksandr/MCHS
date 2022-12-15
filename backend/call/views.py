@@ -4,7 +4,7 @@ from rest_framework import serializers, status
 from rest_framework.views import APIView
 from . import serializers
 from .choices import Role
-from .models import Call, Person
+from .models import Call, Person, CallToPerson
 from django.db.models.query import Prefetch
 
 
@@ -22,12 +22,12 @@ class CallView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request):
-        call_id = request.get('id')
+        call_id = request.data.get('id')
         call = Call.objects.get(id=call_id)
-        workers_id = request.get('workers')
+        workers_id = request.data.get('workers')
         workers = Person.objects.filter(id__in=workers_id)
         for worker in workers:
-            worker.call.set(call)
+            CallToPerson(person=worker, call=call).save()
 
 
 class PersonView(APIView):
