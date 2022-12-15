@@ -5,7 +5,7 @@ from .managers import PersonManager, CallManager
 
 
 class Call(models.Model):
-    objects = CallManager()
+    # objects = CallManager()
 
     reason = models.CharField(max_length=100)
     comment = models.TextField(max_length=100)
