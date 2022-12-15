@@ -1,4 +1,4 @@
-import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
+import { YMaps, Map, Placemark, GeolocationControl} from '@pbe/react-yandex-maps';
 import { useRef, useState } from "react"
 
 export default function Content(props) {
@@ -18,6 +18,7 @@ export default function Content(props) {
             <p>Место для вашей рекламы</p>
             <YMaps>
                 <Map state={mapState} instanceRef={map} className = "map">
+                    <GeolocationControl options={{ float: "left" }} />
                     <Placemark
                         onDragEnd = {handleDrag}
                         geometry={placemarkCoords}

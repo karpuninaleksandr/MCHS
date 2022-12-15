@@ -19,7 +19,7 @@ export default function ManagementGet(props) {
                 },
                 body: JSON.stringify({
                     id: props.call.id,
-                    workers: {worker}
+                    workers: [worker]
                 })
             })
             .then(function(res){ console.log(res) })
