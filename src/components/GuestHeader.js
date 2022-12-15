@@ -12,10 +12,15 @@ export default function Header() {
                     <p>Логин:</p>
                     <input onChange={(event) => setLogin(event.target.value)} type = "text" name = "login"></input>
                     <p>Пароль:</p>
-                    <input onChange={(event) => setRassword(event.target.value)} type = "text" name = "password"></input>
-                    <NavLink className="nav-link" to="/management">
-                        <button className = "entry">ОК</button>
-                    </NavLink>
+                    <input onChange={(event) => setRassword(event.target.value)} type = "password" name = "password"></input>
+                    {
+                        login == 'system' && password == 'masterkey' ? 
+                            <NavLink className="nav-link" to="/management">
+                                <button className = "entry">ОК</button>
+                            </NavLink>
+                        : <button className = "entry">ОК</button>
+                    }
+                    
                 </div>
             </div>
         </div>
