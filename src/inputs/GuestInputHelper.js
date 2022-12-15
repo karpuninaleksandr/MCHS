@@ -8,11 +8,11 @@ export default class ClientInput extends React.Component {
           surname: "",
           name: "",
           patronymic: "",
-          reason: "Другое",
+          reason: "Another",
           comment: "", 
           coordinateX: 57.6317512,
           coordinateY: 39.8858899,
-          injures: "Нет информации"
+          injures: "Unknown"
         };
     
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -112,11 +112,11 @@ export default class ClientInput extends React.Component {
                 </div>
                 <br></br>
                 <p>Есть ли пострадавшие?</p>
-                <input type="checkbox" value="Да" name="injures" onChange={this.handleInjures}/> Да
+                <input type="checkbox" value="Yes" name="injures" onChange={this.handleInjures}/> Да
                 <br></br>
-                <input type="checkbox" value="Нет" name="injures" onChange={this.handleInjures}/> Нет
+                <input type="checkbox" value="No" name="injures" onChange={this.handleInjures}/> Нет
                 <br></br>
-                <input type="checkbox" value="Нет информации" name="injures" onChange={this.handleInjures}/> Нет информации
+                <input type="checkbox" value="Unknown" name="injures" onChange={this.handleInjures}/> Нет информации
                 <br></br>
                 <button onClick={() => {this.send()}} className = 'call'>Вызов</button>
                 </form>
