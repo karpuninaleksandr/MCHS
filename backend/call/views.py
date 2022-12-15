@@ -31,7 +31,19 @@ class CallView(APIView):
         workers = Person.objects.filter(id__in=workers_id)
         for worker in workers:
             CallToPerson(person=worker, call=call).save()
+        return Response(status=status.HTTP_200_OK)
 
+
+# {
+# "id": 1,
+# "workers":[1,2,...]
+# }
+
+# {
+# "name":"oleg",
+# "surname":"jopa",
+# "patronymic":"hgk"
+# }
 
 class PersonView(APIView):
     """ Method for create person record"""
