@@ -71,6 +71,19 @@
     display: flex;
     box-shadow: 0 0 0 1px #222222;
 }
+.manager_header {
+    height: 50px;
+    padding-top: 5px;
+    background-color: #F0E68C;
+    color:black;
+    grid-column: 1 / 4;
+    grid-row: 1;
+    padding-left: 3%;
+    position: sticky;
+    top: 0;
+    display: flex;
+    box-shadow: 0 0 0 1px #222222;
+}
 
 .footer {
     height: 50px;
@@ -213,26 +226,9 @@ textarea {
 .box_name {
   flex-wrap: nowrap;
 }
-.new_worker {
-    position: relative;
-}
-.new_worker_form {
-   
-        /* Скрываем окна  */
-        
-        
-        /*  Установаем ширину окна  */
-        width: 30%;
-        max-width: 500px;
-        
-        /*  Центрируем и задаем z-index */
+
+ .new_worker_form {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 3000; /* Должен быть выше чем у подложки*/
-        
-        /*  Побочные стили   */
         box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2); 
         text-align: center;
         padding: 30px;

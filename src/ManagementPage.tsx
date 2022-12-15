@@ -2,16 +2,15 @@ import Header from "./components/ManagementHeader";
 import ManagementAccordion from "./components/ManagementAccordion";
 import ManagementContent from "./components/ManagementContent";
 import ManagementRightAccordion from "./components/ManagementRightAccordion"
-import { useState, useContext } from "react";
-
-import { Authorizatoin } from "./index.js"
+import { useCookies } from "react-cookie";
+import { useState } from "react"
 
 function Management() {
     const[call, setCall] = useState(null)
-    const {AuthContext} = useContext(Authorizatoin)
+    const [cookies, setCookie] = useCookies(["authorization"])
     return (
         <div className = 'management_start'> 
-            {AuthContext == true ?
+            {cookies != undefined && cookies.authorization == 'true' ?
             <>
                 <Header />
                 <ManagementAccordion updateCall = {setCall} />

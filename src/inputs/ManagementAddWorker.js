@@ -14,7 +14,7 @@ export default class NewWorkerInput extends React.Component {
     }
 
     send() {
-        if (true/*(this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")*/) {
+        if ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")) {
             fetch("http://localhost:8000/api/persons",
             {
                 method: "POST",
@@ -68,7 +68,7 @@ export default class NewWorkerInput extends React.Component {
                         <input name ="patronymic" type = "text" placeholder = "Иванович" onChange={this.handleInputChange}></input>
                     </div>
                     <br></br>
-                    <button onClick={() => {this.send()}} className = 'call'>Добавить</button>
+                    <a href = 'http://localhost:3000/management' onClick={() => {this.send()}} className = 'call'>Добавить</a>
                 </form>
             </div>
         )

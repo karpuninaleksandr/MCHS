@@ -1,12 +1,15 @@
-import { useState, useContext } from "react"
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { Authorizatoin } from "../index.js"
+import { useCookies } from "react-cookie";
 
 export default function Header() {
     const[login, setLogin] = useState()
     const[password, setRassword] = useState()
+    const [cookies, setCookie] = useCookies(["authorization"])
 
-    const {setAuthContext} = useContext(Authorizatoin)
+    function handleSetCookie() {
+        setCookie("authorization", "true", { path: '/' });
+    }
 
     return (
         <div className = "guest_header">
@@ -22,7 +25,7 @@ export default function Header() {
                         login == 'system' && password == 'masterkey' ? 
                             <>
                                 <NavLink className="nav-link" to="/management">
-                                    <button onClick={setAuthContext(true)} className = "entry">ОК</button>
+                                    <button onClick={handleSetCookie} className = "entry">ОК</button>
                                 </NavLink>
                             </>
                         : <button className = "entry">ОК</button>

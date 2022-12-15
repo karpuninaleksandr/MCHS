@@ -5,12 +5,12 @@ import App from './App';
 import Management from './ManagementPage';
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { CookiesProvider } from "react-cookie";
 
-export const Authorizatoin = React.createContext();
 function Api() {
-  const [AuthContext, setAuthContext] = useState(false)
+
   return (
-  <Authorizatoin.Provider value = {{AuthContext, setAuthContext}}>
+    <CookiesProvider>
   <Router>
     <Routes>
       <Route path="/" element={<App />} />
@@ -18,7 +18,7 @@ function Api() {
     </Routes>
     <Footer />
   </Router>
-</Authorizatoin.Provider>)
+  </CookiesProvider>)
 }
 
 ReactDOM.render(
