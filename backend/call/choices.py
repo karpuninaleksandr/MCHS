@@ -9,4 +9,4 @@ class Role(models.TextChoices):
 class Injury(models.TextChoices):
     YES = 'Да'
     NO = 'Нет'
-    UNKNOWN = 'Нет информации'
+    UNKNOWN = 'Нет инфорамции'

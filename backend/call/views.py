@@ -16,6 +16,10 @@ class CallView(APIView):
         serializer.save()
         return Response(status=status.HTTP_200_OK)
 
+
+    def handle_exception(self, exc):
+        print(exc)
+
     def get(self, request):
         queryset = Call.objects.exclude(calltoperson__person__role=Role.WORKER)
         serializer = serializers.CallSerializerForGetMethod(queryset, many=True)
@@ -29,6 +33,7 @@ class CallView(APIView):
         for worker in workers:
             CallToPerson(person=worker, call=call).save()
         return Response(status=status.HTTP_200_OK)
+
 
 # {
 # "id": 1,

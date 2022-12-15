@@ -16,6 +16,11 @@ class Call(models.Model):
     def __str__(self):
         return self.reason #, self.latitude, self.longitude
 
+    class Meta:
+        db_table = 'call'
+        verbose_name = 'call'
+        verbose_name_plural = 'calls'
+
 
 class Person(models.Model):
     objects = PersonManager()
@@ -28,6 +33,12 @@ class Person(models.Model):
 
     def __str__(self):
         return f'{self.name}, {self.surname}'
+
+    class Meta:
+        db_table = 'person'
+        verbose_name = 'person'
+        verbose_name_plural = 'persons'
+        ordering = ('surname',)
 
 
 class CallToPerson(models.Model):
