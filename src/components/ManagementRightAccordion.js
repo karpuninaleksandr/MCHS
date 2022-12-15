@@ -5,7 +5,7 @@ export default function ManagementRightAccordion(props) {
     return (
         <div className = "management_right_accordion">
             <ManagementInput call = {props.call}/>
-            <ManagementGet/>
+            <ManagementGet call = {props.call}/>
         </div>
     )
 }
