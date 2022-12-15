@@ -5,7 +5,7 @@ from .managers import PersonManager, CallManager
 
 
 class Call(models.Model):
-    objects = CallManager()
+    # objects = CallManager()
 
     reason = models.CharField(max_length=100)
     comment = models.TextField(max_length=100)
@@ -39,6 +39,7 @@ class Person(models.Model):
         verbose_name = 'person'
         verbose_name_plural = 'persons'
         ordering = ('surname',)
+        unique_together = ('name', 'surname', 'patronymic')
 
 
 class CallToPerson(models.Model):

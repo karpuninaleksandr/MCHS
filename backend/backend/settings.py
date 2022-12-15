@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'call',
     'corsheaders',
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
