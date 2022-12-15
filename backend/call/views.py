@@ -17,7 +17,7 @@ class CallView(APIView):
         return Response(status=status.HTTP_200_OK)
 
     def get(self, request):
-        queryset = Call.objects.filter(calltoperson__person__role=Role.WORKER)
+        queryset = Call.objects.filter(calltoperson__person__role=Role.GUEST)
         serializer = serializers.CallSerializerForGetMethod(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
