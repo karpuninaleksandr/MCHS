@@ -31,6 +31,7 @@ class CallView(APIView):
 
 
 class PersonView(APIView):
+    """Method for create person record"""
     def get(self, request):
         queryset = Person.objects.filter(role=Role.WORKER)
         serializer = serializers.PersonSerializerForGetMethod(queryset, many=True)
