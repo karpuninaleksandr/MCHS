@@ -13,7 +13,7 @@ class Call(models.Model):
     coordinateX = models.FloatField(default=0.0)      # широта
     coordinateY = models.FloatField(default=0.0)     # долгота
 
-    def __str__(self):
+    def str(self):
         return self.reason #, self.latitude, self.longitude
 
     class Meta:
@@ -31,7 +31,7 @@ class Person(models.Model):
     role = models.CharField(choices=Role.choices, default=Role.GUEST, max_length=6)
     call = models.ManyToManyField(Call, blank=True, null=True, through='CallToPerson')
 
-    def __str__(self):
+    def str(self):
         return f'{self.name}, {self.surname}'
 
     class Meta:
@@ -39,8 +39,15 @@ class Person(models.Model):
         verbose_name = 'person'
         verbose_name_plural = 'persons'
         ordering = ('surname',)
+        unique_together = ('name', 'surname', 'patronymic')
 
 
 class CallToPerson(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     call = models.ForeignKey(Call, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'call_to_person'
+        verbose_name = 'call_to_person'
+        verbose_name_plural = 'calls_to_persons'
+        unique_together = ('person', 'call')

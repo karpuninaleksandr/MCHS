@@ -5,7 +5,6 @@ from rest_framework.views import APIView
 from . import serializers
 from .choices import Role
 from .models import Call, Person, CallToPerson
-from django.db.models.query import Prefetch
 
 
 class CallView(APIView):
