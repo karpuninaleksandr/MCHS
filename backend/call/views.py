@@ -28,12 +28,11 @@ class CallView(APIView):
         workers = Person.objects.filter(id__in=workers_id)
         for worker in workers:
             CallToPerson(person=worker, call=call).save()
-            print('sdf')
         return Response(status=status.HTTP_200_OK)
 
 # {
 # "id": 1,
-# "workers":[]
+# "workers":[1,2,...]
 # }
 
 # {
