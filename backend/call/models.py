@@ -39,6 +39,7 @@ class Person(models.Model):
         verbose_name = 'person'
         verbose_name_plural = 'persons'
         ordering = ('surname',)
+        unique_together = ('name', 'surname', 'patronymic')
 
 
 class CallToPerson(models.Model):
