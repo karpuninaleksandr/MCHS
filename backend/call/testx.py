@@ -4,9 +4,6 @@ from .models import Person, Call
 
 
 class CallToPersonModelTest(TestCase):
-    """
-        Когда теститруется этот класс, то он ломает все остальные тесты
-    """
 
     def test_saving_many_to_many_field(self):
         person = Person.objects.create(name="Владимир", surname="Владимиров", patronymic="Владимирович")
@@ -17,6 +14,6 @@ class CallToPersonModelTest(TestCase):
         person.call.set([call1.pk, call2.pk])
         # Проверяем то что впринципе сохранение произошло
         self.assertTrue(Person.objects.filter(call__in=(call1, call2)).exists(), True)
-        # Проверяем что сохранилось два обьекта
+        # Проверяем что сохранилось оба обьекта
         self.assertEqual(person.call.count(), 2)
         print("\nСохранение поля ManyToMany отрабатывает корректно")
