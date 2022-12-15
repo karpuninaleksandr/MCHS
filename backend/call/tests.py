@@ -41,6 +41,14 @@ class PersonModelTest(TestCase):
         self.assertEquals(person._meta.get_field('patronymic').max_length, 50)
         print("Максималоьная длинна поля patronymic задана верно")
 
+    def test_unique(self):
+        from django.db import IntegrityError
+        try:
+            Person.objects.create(name="Вася", surname="Иванов", patronymic="Петрович")
+            print("\nДобавление в базу человека, чье ФИО уже есть в базе отрабатывается неверно")
+        except IntegrityError:
+            print("\nДобавление в базу человека, чье ФИО уже есть в базе невозможно")
+
 
 class CallModelTest(TestCase):
     """
