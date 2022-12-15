@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import GuestHeader from "./components/GuestHeader";
 import GuestAccordion from "./components/GuestAccordion";
 import GuestContent from "./components/GuestContent";
