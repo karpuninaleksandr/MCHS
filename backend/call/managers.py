@@ -10,7 +10,7 @@ class PersonManager(models.Manager):
         try:
             return self.get(**value)
         except models.ObjectDoesNotExist:
-            r= super().create(**value)
+            r = super().create(**value)
             return r
 
 
