@@ -17,9 +17,6 @@ class CallView(APIView):
         return Response(status=status.HTTP_200_OK)
 
 
-    def handle_exception(self, exc):
-        print(exc)
-
     def get(self, request):
         """ Show calls """
         queryset = Call.objects.exclude(calltoperson__person__role=Role.WORKER)
