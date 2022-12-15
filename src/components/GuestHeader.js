@@ -1,8 +1,13 @@
-import { useState } from "react"
-import { NavLink } from "react-router-dom";
+import { useState, useContext } from "react"
+import { NavLink } from "react-router-dom"
+import { Authorizatoin } from "../index.js"
+
 export default function Header() {
     const[login, setLogin] = useState()
     const[password, setRassword] = useState()
+
+    const {AuthContext, setAuthContext} = useContext(Authorizatoin)
+
     return (
         <div className = "guest_header">
             <h2>Служба защиты Онлайн</h2>
@@ -15,9 +20,12 @@ export default function Header() {
                     <input onChange={(event) => setRassword(event.target.value)} type = "password" name = "password"></input>
                     {
                         login == 'system' && password == 'masterkey' ? 
-                            <NavLink className="nav-link" to="/management">
-                                <button className = "entry">ОК</button>
-                            </NavLink>
+                            <>
+                                {setAuthContext(true)}
+                                <NavLink className="nav-link" to="/management">
+                                    <button className = "entry">ОК</button>
+                                </NavLink>
+                            </>
                         : <button className = "entry">ОК</button>
                     }
                     
