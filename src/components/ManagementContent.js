@@ -8,7 +8,6 @@ export default function ManagementContent(props) {
         center: [57.631691, 39.885818],
         zoom: 15
     }
-   // useEffect(()=>{/*setClusterPointer(props.massPointer)*/console.log(props.massPointer)}, [props.massPointer])
 
     useEffect(()=>{ 
         if (map.current) map.current.setCenter([props.call.coordinateX, props.call.coordinateY]) 

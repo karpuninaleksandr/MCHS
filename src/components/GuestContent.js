@@ -5,16 +5,17 @@ export default function Content(props) {
     const map = useRef(null);
     const[placemarkCoords, setPlacemarkCoords] = useState([57.619234, 39.899597])
     const[ymapsKey, setYmaps] = useState()
-    
+    useEffect(()=>{
+        props.updateCoordX(placemarkCoords[0])
+        props.updateCoordY(placemarkCoords[1])
+    }, [placemarkCoords])
     const mapState = {
         center: placemarkCoords,
         zoom: 15
     }
     const handleDrag = (e) => {
         setPlacemarkCoords(e.get('target').geometry.getCoordinates())
-        setTimeout(()=>{console.log(placemarkCoords)
-            props.updateCoordX(placemarkCoords[0])
-            props.updateCoordY(placemarkCoords[1])}, 1)
+
        // console.log(Geocoder.addressToGeo({address: 'Москва, ул. Льва Толстого, 16'})); onLoad={(ymaps) => setYmaps(ymaps)}
     }
     useEffect(()=>{ geocode()}, [ymapsKey])
