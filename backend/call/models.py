@@ -31,9 +31,6 @@ class Person(models.Model):
     role = models.CharField(choices=Role.choices, default=Role.GUEST, max_length=6)
     call = models.ManyToManyField(Call, blank=True, null=True, through='CallToPerson')
 
-    def str(self):
-        return f'{self.name}, {self.surname}'
-
     class Meta:
         db_table = 'person'
         verbose_name = 'person'

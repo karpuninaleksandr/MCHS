@@ -24,22 +24,16 @@ class PersonModelTest(TestCase):
 
         self.assertEquals(person.role, "Guest")
         print("\nРоль по умолчанию сохраняется корректно")
-
-    def test_str_method(self):
-        person = Person.objects.get(id=1)
-
-        self.assertEquals(str(person), f"{person.name}, {person.surname}")
-        print("\nМетод __str__ отрабатывает штатно")
-
+        
     def test_max_length(self):
         person = Person.objects.get(id=1)
 
         self.assertEquals(person._meta.get_field('name').max_length, 50)
-        print("\nМаксималоьная длинна поля name задана верно")
+        print("\nМаксимальная длина поля name задана верно")
         self.assertEquals(person._meta.get_field('surname').max_length, 50)
-        print("Максималоьная длинна поля surname задана верно")
+        print("Максимальная длина поля surname задана верно")
         self.assertEquals(person._meta.get_field('patronymic').max_length, 50)
-        print("Максималоьная длинна поля patronymic задана верно")
+        print("Максимальная длина поля patronymic задана верно")
 
     def test_unique(self):
         from django.db import IntegrityError
