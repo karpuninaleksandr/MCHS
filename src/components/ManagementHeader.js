@@ -32,15 +32,19 @@ export default function ManagementHeader(props) {
             <div className="blockStatistics" style = {{opacity: statistics[0], visibility: statistics[1]}}>
                 {
                     data ? data.map(call => call ?
-                        <div key={call.id}>
-                            <p>{call.reason}</p>
-                            <p>{call.comment}</p>
-                            <p>{call.injures}</p>
-                            <p>{call.reason}</p>
-                            <p>Пострадавший: {call.persons[call.persons.length-1].surname}</p>
-                            if ({call.persons.length == 1}) {
-
+                        <div className="statistics" key={call.id}>
+                            <p>Причина вызова: {call.reason}</p>
+                            {
+                                call.injures === "Да" 
+                                    ? <p>Есть пострадавшие</p> 
+                                    : call.injures === "Нет" 
+                                        ? <p>Нет пострадавших</p> 
+                                        : <p>Нет информации о пострадавших</p>
                             }
+                            <p>Комментарий пострадавшего: {call.comment}</p>
+                            {call.persons.map(person => person.role == "Guest" ? <p>Пострадавший: {person.surname} {person.name} {person.patronymic}</p> : 
+                            <p>Назначенный сотрудник: {person.surname} {person.name} {person.patronymic}</p>
+                            )}
                         </div> : null
                     ) : null
                 }
