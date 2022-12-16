@@ -1,9 +1,11 @@
-import { YMaps, Map, Placemark, GeolocationControl} from '@pbe/react-yandex-maps';
-import { useRef, useState } from "react"
+import { YMaps, Map, Placemark, GeolocationControl } from '@pbe/react-yandex-maps';
+import { useRef, useState, useEffect } from "react"
 
 export default function Content(props) {
     const map = useRef(null);
     const[placemarkCoords, setPlacemarkCoords] = useState([57.619234, 39.899597])
+    const[ymapsKey, setYmaps] = useState()
+    
     const mapState = {
         center: placemarkCoords,
         zoom: 15
@@ -12,12 +14,26 @@ export default function Content(props) {
         setPlacemarkCoords(e.get('target').geometry.getCoordinates())
         props.updateCoordX(placemarkCoords[0])
         props.updateCoordY(placemarkCoords[1])
+       // console.log(Geocoder.addressToGeo({address: 'Москва, ул. Льва Толстого, 16'}));
     }
+    useEffect(()=>{ geocode()}, [ymapsKey])
+
+    const geocode = () => {
+        
+        if (ymapsKey != undefined && ymapsKey.geocode  != undefined) {
+            console.log(ymapsKey)
+        ymapsKey.geocode('Moscow')
+          .then(result => console.log({ coordinates: result.geoObjects.get(0).geometry.getCoordinates() }))
+        }
+      }
     return (
         <div className = "guest_content">
             <p>Место для вашей рекламы</p>
             <YMaps>
-                <Map state={mapState} instanceRef={map} className = "map">
+                <Map state={mapState}
+                 instanceRef={map}
+                onLoad={(ymaps) => setYmaps(ymaps)}
+                modules= {["geolocation", "geocode"]} className = "map">
                     <GeolocationControl options={{ float: "left" }} />
                     <Placemark
                         onDragEnd = {handleDrag}

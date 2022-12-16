@@ -4,12 +4,17 @@ import NewWorkerInput from "../inputs/ManagementAddWorker.js"
 import { useCookies } from "react-cookie";
 //<NewWorkerInput styleModal = {styleModalForm} updateStyleModal = {setStyleModalForm} />
 //<button className = 'button_openFormWorker' onClick = {setStyleModalForm([1, 'visible'])}>Добавить работника</button>
-export default function ManagementHeader() {
+export default function ManagementHeader(props) {
     const [styleModalForm, setStyleModalForm] = useState([0, 'hidden'])
+    const [statistics, setStatistics] = useState([0, 'hidden'])
     const [cookies, setCookie] = useCookies(["authorization"])
     
     function handleSetCookie() {
         setCookie("authorization", "false", { path: '/' });
+    }
+    function click() {
+        setStatistics([1, 'visible'])
+        props.updateMapDisplay('none')
     }
     return (
         <div className = "manager_header">
@@ -17,6 +22,8 @@ export default function ManagementHeader() {
                 <button className = 'button_openFormWorker' onClick = {() => setStyleModalForm([1, 'visible'])}>Добавить работника</button>
                 <NewWorkerInput styleModal = {styleModalForm} updateStyleModal = {setStyleModalForm} />
             </div>
+            <button className = 'buttonOpenStatistics' onClick = {click} >Статистика</button>
+            <div className="blockStatistics" style = {{opacity: statistics[0], visibility: statistics[1]}}></div>
             <h2>Служба защиты Онлайн</h2>
             <div className = "registration">
                 <NavLink className="nav-link" to="/">
