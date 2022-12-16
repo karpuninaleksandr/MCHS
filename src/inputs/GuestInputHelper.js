@@ -8,7 +8,7 @@ export default class ClientInput extends React.Component {
           surname: "",
           name: "",
           patronymic: "",
-          reason: "Another",
+          reason: "Другое",
           comment: "", 
           coordinateX: 57.6317512,
           coordinateY: 39.8858899,
