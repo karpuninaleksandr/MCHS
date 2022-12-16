@@ -1,4 +1,4 @@
-import { YMaps, Map, Placemark, Clusterer } from '@pbe/react-yandex-maps';
+import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import { useRef, useState, useEffect } from "react"
 
 export default function ManagementContent(props) {

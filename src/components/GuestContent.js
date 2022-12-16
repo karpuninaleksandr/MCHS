@@ -18,7 +18,7 @@ export default function Content(props) {
 
        // console.log(Geocoder.addressToGeo({address: 'Москва, ул. Льва Толстого, 16'})); onLoad={(ymaps) => setYmaps(ymaps)}
     }
-    useEffect(()=>{ geocode()}, [ymapsKey])
+    /*useEffect(()=>{ geocode()}, [ymapsKey])
 
     const geocode = () => {
         
@@ -27,7 +27,7 @@ export default function Content(props) {
         ymapsKey.geocode('Moscow')
           .then(result => console.log({ coordinates: result.geoObjects.get(0).geometry.getCoordinates() }))
         }
-      }
+      }*/
     return (
         <div className = "guest_content">
             <p>Место для вашей рекламы</p>
