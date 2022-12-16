@@ -5,7 +5,7 @@ from .managers import PersonManager, CallManager
 
 
 class Call(models.Model):
-    # objects = CallManager()
+    objects = CallManager()
 
     reason = models.CharField(max_length=100)
     comment = models.TextField(max_length=100)
@@ -29,7 +29,7 @@ class Person(models.Model):
     surname = models.CharField(max_length=50, db_index=True)
     patronymic = models.CharField(max_length=50)
     role = models.CharField(choices=Role.choices, default=Role.GUEST, max_length=6)
-    call = models.ManyToManyField(Call, blank=True, null=True, through='CallToPerson')
+    call = models.ManyToManyField(Call, blank=True, null=True, through='CallToPerson', related_name='persons')
 
     def str(self):
         return f'{self.name}, {self.surname}'

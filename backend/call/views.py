@@ -16,7 +16,6 @@ class CallView(APIView):
         serializer.save()
         return Response(status=status.HTTP_200_OK)
 
-
     def get(self, request):
         """ Show calls """
         queryset = Call.objects.exclude(calltoperson__person__role=Role.WORKER)
@@ -65,5 +64,5 @@ class CallWithPeoplesView(APIView):
     """ Show all calls """
     def get(self, request):
         queryset = Call.objects.all()
-        serializer = serializers.CallSerializerForGetMethod(queryset, many=True)
+        serializer = serializers.CallSerializerForGetAllCalls(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
