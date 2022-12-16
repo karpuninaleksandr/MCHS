@@ -27,17 +27,16 @@ export default function ManagementGet(props) {
         }
     }
 
-    return <>
+    return <div className="workersList">
+    <p>Назначить сотрудника на вызов:</p>
         {data ? <ul className="management_people_list">
             {data.map(man => (
-                <button key={man.id} onClick={()=> send(man.id)}>
-                    <div>
+                <button className="worker" key={man.id} onClick={()=> send(man.id)}>
                         <p>{man.surname} {man.name} {man.patronymic}</p>
-                    </div>
                 </button>
             ))}
             </ul> : <p>Нет данных о работниках</p>
         } 
-    </> 
+    </div> 
 }
 

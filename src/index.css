@@ -173,11 +173,19 @@ textarea {
     width: 250px;
 }
 
-.button_entrance:hover, .management_call_list li:hover {
+.button_entrance:hover, .management_call_list li:hover, .worker, .button_openFormWorker, .buttonOpenStatistics {
     background-color: rgba(99, 12, 12, 0.411);
 }
 
-.button_entrance, .entry {
+.name {
+    margin: auto;
+}
+
+.workersList {
+    margin-top: 30vh;
+}
+
+.button_entrance, .entry, .button_openFormWorker{
     height: 30px; 
     color: black;
     cursor: pointer;
@@ -189,6 +197,33 @@ textarea {
     width: 100px;
     box-shadow: 0 0 0 1px #222222;
 }
+
+.buttonOpenStatistics{
+    height: 30px; 
+    color: black;
+    cursor: pointer;
+    background-color: #BDB76B;
+    font-weight: bold;
+    border: 1px solid #BDB76B;
+    border-radius: 8px;
+    margin: 7px 70px 0 0;
+    width: 100px;
+    box-shadow: 0 0 0 1px #222222;
+}
+
+.worker {
+    height: 30px; 
+    color: black;
+    cursor: pointer;
+    background-color: #BDB76B;
+    font-weight: bold;
+    border: 1px solid #BDB76B;
+    border-radius: 8px;
+    margin: 7px 70px 0 auto;
+    width: 200px;
+    box-shadow: 0 0 0 1px #222222;
+}
+
 .entry {
     width: 20%;
 }
@@ -208,7 +243,7 @@ textarea {
 }
 
 .management_call_list li {
-    height: 60px;
+    height: 130px;
     border: solid;
     border-width: 1px;
     padding: 10px;
