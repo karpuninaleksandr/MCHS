@@ -118,7 +118,14 @@ export default class ClientInput extends React.Component {
                 <br></br>
                 <input type="checkbox" value="Unknown" name="injures" onChange={this.handleInjures}/> Нет информации
                 <br></br>
-                <button onClick={() => {this.send()}} className = 'call'>Вызов</button>
+                <button onClick={
+                    () => {
+                            this.props.updateReasonCall(this.state.reason)
+                            this.send()
+                            this.props.updateFormSend(false)
+                        }
+                    }
+                     className = 'call'>Вызов</button>
                 </form>
             </div>
         )

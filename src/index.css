@@ -318,3 +318,7 @@ textarea {
     margin: 14px;
     padding: 20px;
 }
+
+.display-linebreak {
+    white-space: pre-line;
+  }

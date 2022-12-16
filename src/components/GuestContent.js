@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react"
 export default function Content(props) {
     const map = useRef(null);
     const[placemarkCoords, setPlacemarkCoords] = useState([57.619234, 39.899597])
-    const[ymapsKey, setYmaps] = useState()
+    //const[ymapsKey, setYmaps] = useState()
     useEffect(()=>{
         props.updateCoordX(placemarkCoords[0])
         props.updateCoordY(placemarkCoords[1])
