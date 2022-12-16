@@ -12,9 +12,10 @@ export default function Content(props) {
     }
     const handleDrag = (e) => {
         setPlacemarkCoords(e.get('target').geometry.getCoordinates())
-        props.updateCoordX(placemarkCoords[0])
-        props.updateCoordY(placemarkCoords[1])
-       // console.log(Geocoder.addressToGeo({address: 'Москва, ул. Льва Толстого, 16'}));
+        setTimeout(()=>{console.log(placemarkCoords)
+            props.updateCoordX(placemarkCoords[0])
+            props.updateCoordY(placemarkCoords[1])}, 1)
+       // console.log(Geocoder.addressToGeo({address: 'Москва, ул. Льва Толстого, 16'})); onLoad={(ymaps) => setYmaps(ymaps)}
     }
     useEffect(()=>{ geocode()}, [ymapsKey])
 
@@ -32,7 +33,6 @@ export default function Content(props) {
             <YMaps>
                 <Map state={mapState}
                  instanceRef={map}
-                onLoad={(ymaps) => setYmaps(ymaps)}
                 modules= {["geolocation", "geocode"]} className = "map">
                     <GeolocationControl options={{ float: "left" }} />
                     <Placemark

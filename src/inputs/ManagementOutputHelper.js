@@ -4,10 +4,13 @@ import Api from "./api"
 export default function ManagementOutput(props) {
     const[data, setData] = useState(null)
     useEffect(()=> {
-        Api.fetchData("http://localhost:8000/api/calls").then(data => setData(data))
-        if (data) {
-            props.updateMassPointer(data.map((call) => ( [call.coordinateX, call.coordinateY]))) 
-        }
+        Api.fetchData("http://localhost:8000/api/calls").then(
+            data => {
+                setData(data)
+                props.updateMassPointer(data.map((call) => ( [call.coordinateX, call.coordinateY])))
+            }
+        )
+
         
     }, [])
 
