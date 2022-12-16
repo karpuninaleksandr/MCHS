@@ -43,6 +43,7 @@
     color:black;
     padding-top: 20px;
     padding-left: 10px;
+    overflow: auto;
 }
 
 .management_right_accordion {
@@ -300,9 +301,20 @@ textarea {
     position: absolute;
     height: 75vh;
     width: 75vw;
-    background-color: white;
+    background-color: #F0E68C;
     z-index: 5;
     margin-top: 7vh;
     margin-left: 7vw;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    overflow: auto;
 }
 
+.statistics {
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    margin: 14px;
+    padding: 20px;
+}
