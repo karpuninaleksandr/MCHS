@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom";
 
 export default class NewWorkerInput extends React.Component {
 
@@ -68,7 +69,14 @@ export default class NewWorkerInput extends React.Component {
                         <input name ="patronymic" type = "text" placeholder = "Иванович" onChange={this.handleInputChange}></input>
                     </div>
                     <br></br>
-                    <a href = 'http://localhost:3000/management' onClick={() => {this.send()}} className = 'call'>Добавить</a>
+                    {console.log(this.state.surname)}
+                    {
+                        ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")) ?
+                            <NavLink className="call" to="/management">
+                                <button onClick={() => {this.send(); window.location.reload();}} className = 'call'>Добавить</button>
+                            </NavLink>
+                            : <button className = 'call'>Добавить</button>
+                    }
                 </form>
             </div>
         )

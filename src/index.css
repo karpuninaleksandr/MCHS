@@ -173,7 +173,7 @@ textarea {
     width: 250px;
 }
 
-.button_entrance:hover, .management_call_list li:hover, .worker, .button_openFormWorker, .buttonOpenStatistics {
+.button_entrance:hover, .management_call_list li:hover, .worker:hover, .button_openFormWorker:hover, .buttonOpenStatistics:hover, .call:hover, .confirm:hover {
     background-color: rgba(99, 12, 12, 0.411);
 }
 
@@ -182,10 +182,24 @@ textarea {
 }
 
 .workersList {
-    margin-top: 30vh;
+    margin-top: 10vh;
 }
 
-.button_entrance, .entry, .button_openFormWorker{
+ .confirm {
+    height: 30px; 
+    color: black;
+    cursor: pointer;
+    background-color: #BDB76B;
+    font-weight: bold;
+    border: 1px solid #BDB76B;
+    border-radius: 8px;
+    margin-left: 80px;
+    margin-top: 20px;
+    width: 100px;
+    box-shadow: 0 0 0 1px #222222;
+}
+
+.button_entrance, .entry, .button_openFormWorker, .call {
     height: 30px; 
     color: black;
     cursor: pointer;
@@ -249,6 +263,13 @@ textarea {
     padding: 10px;
     margin-top: 5px;
 }
+.box_name {
+    height: 180px;
+    border: solid;
+    border-width: 1px;
+    padding: 10px;
+    margin-top: 5px;
+}
 
 .management_people_list li {
     padding: 5px;
@@ -268,8 +289,11 @@ textarea {
         text-align: center;
         padding: 30px;
         border-radius: 3px;
-        background-color: red;
+        background-color: #F0E68C;
         transition: 0.3s all;
+        border: solid;
+    border-width: 1px;
+    border-color: black;
      
 }
 .blockStatistics {

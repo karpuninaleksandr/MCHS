@@ -7,7 +7,7 @@ export default function ManagementOutput(props) {
         Api.fetchData("http://localhost:8000/api/calls").then(data => setData(data))
     }, [])
 
-    return <> {
+    return <><p>Список вызовов:</p> {
         data ? <ul className = "management_call_list">
             {
                 data.map(call => (
