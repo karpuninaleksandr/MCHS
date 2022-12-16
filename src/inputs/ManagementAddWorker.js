@@ -54,7 +54,7 @@ export default class NewWorkerInput extends React.Component {
 
     render() {
         return (
-            <div className = "new_worker_form" style = {{opacity: this.props.styleModal[0], visibility: this.props.styleModal[1]}}>
+            <div className = "new_worker_form" style = {{opacity: this.props.styleModal[0], visibility: this.props.styleModal[1]}}> 
                 <form onSubmit={this.handleSubmit}>
                     <div className="input_info">
                         <p>Фамилия:</p>
@@ -77,6 +77,8 @@ export default class NewWorkerInput extends React.Component {
                             </NavLink>
                             : <button className = 'call'>Добавить</button>
                     }
+                    <br></br>
+                    <button onClick={() => { window.location.reload();}} className = 'call'>Отмена</button>
                 </form>
             </div>
         )

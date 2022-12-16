@@ -4,7 +4,9 @@ export default function ManagementInput(props) {
     else 
     return <div className="box_name">
             <p>Причина вызова: {props.call.reason}</p>
-            <p>Есть ли пострадавшие: {props.call.injures}</p>
+            {props.call.injures === "Да" ? <p>Есть пострадавшие</p> :
+                 props.call.injures === "Нет" ? <p>Нет пострадавших</p> 
+                : <p>Нет информации о пострадавших</p>}
             <p>Комментарий пострадавшего: {props.call.comment}</p>
         </div>
 }
