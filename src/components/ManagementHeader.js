@@ -30,6 +30,7 @@ export default function ManagementHeader(props) {
             </div>
             <button className = 'buttonOpenStatistics' onClick = {() => {click(); getCalls()}} >Статистика</button>
             <div className="blockStatistics" style = {{opacity: statistics[0], visibility: statistics[1]}}>
+            <button className="close" onClick={() => {window.location.reload();}}>Закрыть</button>
                 {
                     data ? data.map(call => call ?
                         <div className="statistics" key={call.id}>
