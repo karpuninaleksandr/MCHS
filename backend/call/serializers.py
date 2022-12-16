@@ -66,17 +66,3 @@ class CallSerializerForUpdateData(CallSerializer):
         return r
 
 
-class PersonSerializerForGetAllCalls(serializers.ModelSerializer):
-
-    class Meta:
-        model = Person
-        exclude = ['call']
-
-
-class CallSerializerForGetAllCalls(serializers.ModelSerializer):
-    persons = PersonSerializerForGetAllCalls(many=True, read_only=True)
-
-    class Meta:
-        model = Call
-        fields = ('reason', 'comment', 'injures', 'coordinateX', 'coordinateY', 'persons')
-
