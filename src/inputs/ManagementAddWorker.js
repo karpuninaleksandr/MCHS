@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom";
 
 export default class NewWorkerInput extends React.Component {
 
@@ -53,7 +54,7 @@ export default class NewWorkerInput extends React.Component {
 
     render() {
         return (
-            <div className = "new_worker_form" style = {{opacity: this.props.styleModal[0], visibility: this.props.styleModal[1]}}>
+            <div className = "new_worker_form" style = {{opacity: this.props.styleModal[0], visibility: this.props.styleModal[1]}}> 
                 <form onSubmit={this.handleSubmit}>
                     <div className="input_info">
                         <p>Фамилия:</p>
@@ -68,7 +69,16 @@ export default class NewWorkerInput extends React.Component {
                         <input name ="patronymic" type = "text" placeholder = "Иванович" onChange={this.handleInputChange}></input>
                     </div>
                     <br></br>
-                    <a href = 'http://localhost:3000/management' onClick={() => {this.send()}} className = 'call'>Добавить</a>
+                    {console.log(this.state.surname)}
+                    {
+                        ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")) ?
+                            <NavLink className="call" to="/management">
+                                <button onClick={() => {this.send(); window.location.reload();}} className = 'call'>Добавить</button>
+                            </NavLink>
+                            : <button className = 'call'>Добавить</button>
+                    }
+                    <br></br>
+                    <button onClick={() => { window.location.reload();}} className = 'call'>Отмена</button>
                 </form>
             </div>
         )

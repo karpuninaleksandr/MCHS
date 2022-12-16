@@ -11,7 +11,7 @@ export default function ManagementOutput(props) {
         
     }, [])
 
-    return <> {
+    return <><p>Список вызовов:</p> {
         data ? <ul className = "management_call_list">
             {
                 data.map(call => (

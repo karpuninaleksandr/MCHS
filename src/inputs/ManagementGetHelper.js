@@ -27,7 +27,7 @@ export default function ManagementGet(props) {
         }
     }
 
-    return <div className="workersList">
+    return <><div className="workersList">
     <p>Назначить сотрудника на вызов:</p>
         {data ? <ul className="management_people_list">
             {data.map(man => (
@@ -38,5 +38,6 @@ export default function ManagementGet(props) {
             </ul> : <p>Нет данных о работниках</p>
         } 
     </div> 
+    <button className="confirm" onClick={() => {window.location.reload();}}>Подтвердить назначение</button>  </>  
 }
 
