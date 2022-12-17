@@ -21,7 +21,8 @@ export default class ClientInput extends React.Component {
     }
 
     send() {
-        if ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "")) {
+        if ((this.state.surname !== "") && (this.state.name !== "") && (this.state.patronymic !== "") && (this.state.comment !== "")) {
+            this.props.updateFormSend(false)
             fetch("http://localhost:8000/api/calls",
             {
                 method: "POST",
@@ -82,15 +83,15 @@ export default class ClientInput extends React.Component {
             <div className = "guest_form">
                 <form onSubmit={this.handleSubmit}>
                 <div className="input_info">
-                    <p>Фамилия:</p>
+                    <p>Фамилия:*</p>
                     <input name="surname" type = "text" placeholder = "Иванов" onChange={this.handleInputChange}></input>
                 </div>
                 <div className="input_info">
-                    <p>Имя:</p>
+                    <p>Имя:*</p>
                     <input name="name" type = "text" placeholder = "Иван" onChange={this.handleInputChange}></input>
                 </div>
                 <div className="input_info">
-                    <p>Отчество:</p>
+                    <p>Отчество:*</p>
                     <input name ="patronymic" type = "text" placeholder = "Иванович" onChange={this.handleInputChange}></input>
                 </div>
                 <div className="input_info">
@@ -107,7 +108,7 @@ export default class ClientInput extends React.Component {
                 </div>
                 <br></br>
                 <div className="input_info">
-                    <p>Нужная информация</p>
+                    <p>Нужная информация*</p>
                     <textarea name="comment" className = "text_help" placeholder = "Опишите ситуацию" onChange={this.handleInputChange}></textarea>
                 </div>
                 <br></br>
@@ -122,7 +123,7 @@ export default class ClientInput extends React.Component {
                     () => {
                             this.props.updateReasonCall(this.state.reason)
                             this.send()
-                            this.props.updateFormSend(false)
+                           // this.props.updateFormSend(false)
                         }
                     }
                      className = 'call'>Вызов</button>
